@@ -78,3 +78,7 @@ a{
     color:rgb(199, 200, 203);
     font-size: 16px;
 }
+
+#main{
+    vertical-align: top;;
+}
