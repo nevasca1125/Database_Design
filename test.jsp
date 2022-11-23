@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="java.sql.*" %>
+
 <!DOCTYPE html>
 <html>  
     <head>
@@ -48,9 +51,7 @@
         </div>
         <div id="page_div">
             <table id="page">
-                <td>
-                   <!--정보 표현 및 기타 조작 공간-->
-                </td>
+                <!--정보 표현 및 기타 조작 공간-->
             </table>
         </div>
         <div id="bottom_div">
