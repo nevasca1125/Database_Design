@@ -8,57 +8,59 @@
         <link rel="stylesheet" href="frame.css">
     </head>
     <body>
-        <div id="top_div">
-            <table id="top">
-                <tr>
-                    <td id="title_th1">
-                        <p id="img"><img src="mju_logo.jpg" alt="mju_logo" width="45px"></p>
+        <div class="frame">
+            <div id="top_div">
+                <table id="top">
+                    <tr>
+                        <td id="title_th1">
+                            <p id="img"><img src="mju_logo.jpg" alt="mju_logo" width="45px"></p>
+                        </td>
+                        <td id="title_th2">
+                            <h3 id="title">MJU BANK</h3>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="menu_div">
+                <table id="menu">   
+                        <td class="item">
+                            <a href="#">하나</a>
+                        </td>
+                        <td class="slice"></td>
+                        <td class="item">
+                            <a href="#">둘</a>
+                        </td>    
+                        <td class="slice"></td>
+                        <td class="item">
+                            <a href="#">셋</a>
+                        </td> 
+                        <td class="slice"></td>
+                        <td class="item">
+                            <a href="#">넷</a>
+                        </td> 
+                        <td class="slice"></td>
+                        <td class="item">
+                            <a href="#">다섯</a>
+                        </td> 
+                        <td class="slice"></td>
+                        <td class="item">
+                            <a href="#">여섯</a>
+                        </td> 
+                        <td class="slice"></td>
+                    </ul>  
+                </table>
+            </div>
+            <div id="page_div">
+                <table id="page">
+                    <td>
+                    <!--정보 표현 및 기타 조작 공간-->
                     </td>
-                    <td id="title_th2">
-                        <h3 id="title">MJU BANK</h3>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div id="menu_div">
-            <table id="menu">   
-                    <td class="item">
-                        <a href="#">하나</a>
-                    </td>
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">둘</a>
-                    </td>    
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">셋</a>
-                    </td> 
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">넷</a>
-                    </td> 
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">다섯</a>
-                    </td> 
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">여섯</a>
-                    </td> 
-                    <td class="slice"></td>
-                </ul>  
-            </table>
-        </div>
-        <div id="page_div">
-            <table id="page">
-                <td>
-                   <!--정보 표현 및 기타 조작 공간-->
-                </td>
-            </table>
-        </div>
-        <div id="bottom_div">
-            <table id="bottom">
-            </table>
+                </table>
+            </div>
+            <div id="bottom_div">
+                <table id="bottom">
+                </table>
+            </div>
         </div>
     </body>
 </html>

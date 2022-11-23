@@ -1,6 +1,5 @@
 body{
     background-color: rgb(121, 124, 152);
-    margin: 20px;
 }
 
 #top{
@@ -81,4 +80,13 @@ a{
 
 #main{
     vertical-align: top;;
+}
+
+.frame{
+    display: flex;
+    flex: 0.2;
+    min-width: max-content;
+    min-height: max-content;
+    flex-direction: column;
+    padding: 12px;
 }
