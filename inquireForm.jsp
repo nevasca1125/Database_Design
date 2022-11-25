@@ -19,7 +19,7 @@
                         <td id="title_th2">
                             <h3 id="title">MJU BANK</h3>
                         </td>
-                        <td id="detail" style="color: rgb(151, 151, 151); padding-left: 10px">_detail</td>
+                        <td id="detail" style="color: rgb(151, 151, 151); padding-left: 10px">_고객정보조회</td>
                     </tr>
                 </table>
             </div>
@@ -27,27 +27,27 @@
                 <table id="menu">
                     <tr> 
                         <td class="item">
-                            <a href="#" id="one">하나</a>
+                            <a href="#" id="home">HOME</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#">둘</a>
+                            <a href="inquireForm.jsp" id="inquire_customer">고객정보</a>
                         </td>    
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#">셋</a>
+                            <a href="#">상품정보</a>
                         </td> 
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#">넷</a>
+                            <a href="#"></a>
                         </td> 
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#">다섯</a>
+                            <a href="#"></a>
                         </td> 
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#">여섯</a>
+                            <a href="#"></a>
                         </td> 
                         <td class="slice"></td>  
                     </tr>  
@@ -55,8 +55,15 @@
             </div>
             <div id="page_div">
                 <table id="page">
-                    <td id="main">
+                    <td id="main" style="padding-left: 15px">
                         <!--정보 표현 및 기타 조작 공간-->
+                        <p>[고객정보 조회] 이름과 주민번호를 입력하세요.</p>
+                        <form name="form_customer" method="post" action="inquireOut.jsp">
+                            <p>이름 : <input type="text" name="name"></p>
+                            <p>주민번호 : <input type="text" name="number_r"></p>
+                            <p>조회정보 : <input type="text" name="info"></p>
+                            <p><input type="submit" name="Submit" value="조회하기"></p>
+                        </form>
                     </td>
                 </table>
             </div>
