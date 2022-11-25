@@ -18,36 +18,36 @@
                         <td id="title_th2">
                             <h3 id="title">MJU BANK</h3>
                         </td>
+                        <td id="detail" style="color: rgb(151, 151, 151); padding-left: 10px">_detail</td>
                     </tr>
                 </table>
             </div>
             <div id="menu_div">
                 <table id="menu">   
-                        <td class="item">
-                            <a href="#">하나</a>
-                        </td>
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">둘</a>
-                        </td>    
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">셋</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">넷</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">다섯</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">여섯</a>
-                        </td> 
-                        <td class="slice"></td>
-                    </ul>  
+                    <td class="item">
+                        <a href="#" id="one">하나</a>
+                    </td>
+                    <td class="slice"></td>
+                    <td class="item">
+                        <a href="#">둘</a>
+                    </td>    
+                    <td class="slice"></td>
+                    <td class="item">
+                        <a href="#">셋</a>
+                    </td> 
+                    <td class="slice"></td>
+                    <td class="item">
+                        <a href="#">넷</a>
+                    </td> 
+                    <td class="slice"></td>
+                    <td class="item">
+                        <a href="#">다섯</a>
+                    </td> 
+                    <td class="slice"></td>
+                    <td class="item">
+                        <a href="#">여섯</a>
+                    </td> 
+                    <td class="slice"></td>
                 </table>
             </div>
             <div id="page_div">
@@ -62,5 +62,7 @@
                 </table>
             </div>
         </div>
+
+        <script src="frame.js"></script>
     </body>
 </html>
