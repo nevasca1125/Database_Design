@@ -27,27 +27,27 @@
                 <table id="menu">
                     <tr> 
                         <td class="item">
-                            <a href="#" id="home">HOME</a>
+                            <a href="inquireForm.jsp" id="home" class="item">HOME</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="inquireForm.jsp" id="inquire_customer">고객정보</a>
+                            <a href="inquireForm.jsp" class="item">고객정보</a>
                         </td>    
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#">상품정보</a>
+                            <a href="#" class="item">상품정보</a>
                         </td> 
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#"></a>
+                            <a href="#" class="item"></a>
                         </td> 
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#"></a>
+                            <a href="#" class="item"></a>
                         </td> 
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#"></a>
+                            <a href="#" class="item"></a>
                         </td> 
                         <td class="slice"></td>  
                     </tr>  
@@ -57,10 +57,17 @@
                 <table id="page">
                     <td id="main" style="padding: 15px">
                         <!--정보 표현 및 기타 조작 공간-->
-                        <table border="1" style="text-align: center;">
+                        <table id="result" border="1" style="text-align: center; border-color: blue;">
                             <tr>
                                 <td width="100">이름</td>
                                 <td width="140">주민번호</td>
+                                <td width="260">주소</td>
+                                <td width="100">생일</td>
+                                <td width="140">이메일</td>
+                                <td width="120">전화번호</td>
+                                <td width="100">직업</td>
+                                <td width="100">신용점수</td>
+                                <td width="100">가입일</td>
                             </tr>
                             <%
                                 request.setCharacterEncoding("utf-8");
@@ -84,21 +91,37 @@
                             
                                     conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
                                     
-                                    String sql = "SELECT * FROM Customer WHERE name=? AND num_resident=?";
+                                    String sql = "SELECT * FROM Customer WHERE name=?";
                             
                                     pstmt = conn.prepareStatement(sql);
                                     pstmt.setString(1, n);
-                                    pstmt.setString(2, r);
                             
                                     rs = pstmt.executeQuery();
                                     while( rs.next() ) {
-                                        String id = rs.getString("name");
-                                        String name = rs.getString("num_resident");
+                                        String name = rs.getString("name");
+                                        String num = rs.getString("num_resident");
+                                        String add = rs.getString("address");
+                                        String birth = rs.getString("date_birth");
+                                        String email = rs.getString("email");
+                                        String phone = rs.getString("phone");
+                                        String job = rs.getString("job");
+                                        String credit = rs.getString("rate_credit");
+                                        String join = rs.getString("date_join");
+
+                                        birth = birth.replace("00:00:00", "");
+                                        join = join.replace("00:00:00", "");
                                     
                             %>
                                         <tr>
-                                            <td width="100"><%= id %></td>
-                                            <td width="140"><%= name %></td>
+                                            <td width="100"><%= name %></td>
+                                            <td width="140"><%= num %></td>
+                                            <td width="260"><%= add %></td>
+                                            <td width="100"><%= birth %></td>
+                                            <td width="140"><%= email %></td>
+                                            <td width="120"><%= phone %></td>
+                                            <td width="100"><%= job %></td>
+                                            <td width="100"><%= credit %></td>
+                                            <td width="100"><%= join %></td>
                                         </tr>
                             
                             <%
