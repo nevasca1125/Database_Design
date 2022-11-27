@@ -61,18 +61,18 @@ INSERT INTO Card_List VALUES('반려동물사랑카드', '신용카드', '345-23
 INSERT INTO Card_List VALUES('직장인보너스카드', '신용카드', '348-9859-023-4859', to_date('04-11-2026', 'dd-mm-yyyy'), '872910-43-485927', to_date('04-11-2022', 'dd-mm-yyyy'), 4256000, 5000000, 'run', null);
 
 --Automatic--
-INSERT INTO Automatic VALUES('10C734GH', '823456-34-938409', '894736-09-473826', 50000, '매월, 25', null);
-INSERT INTO Automatic VALUES('3DF890I2', '821125-52-038274', '837264-30-482945', 50000, '매월, 30', null);
-INSERT INTO Automatic VALUES('456DF89F', '894037-32-637284', '875658-32-372846', 100000, '매월, 30', null);
-INSERT INTO Automatic VALUES('289G678D', '890765-23-273628', '875657-01-839479', 10000, null, '매주, 일');
+INSERT INTO Automatic VALUES('10C734GH', '823456-34-938409', '894736-09-473826', 50000, '25', null);
+INSERT INTO Automatic VALUES('3DF890I2', '821125-52-038274', '837264-30-482945', 50000, '30', null);
+INSERT INTO Automatic VALUES('456DF89F', '894037-32-637284', '875658-32-372846', 100000, '30', null);
+INSERT INTO Automatic VALUES('289G678D', '890765-23-273628', '875657-01-839479', 10000, null, '일');
 
 --Info_Installment--
-INSERT INTO Info_Installment VALUES('894736-09-473826', '매월, 25', to_date('10-10-2027','dd-mm-yyyy'), 0.03, 24, 5000000, 'Y');
-INSERT INTO Info_Installment VALUES('837264-30-482945', '매월, 30', to_date('31-12-2027','dd-mm-yyyy'), 0.03, 30, 5000000, 'N');
-INSERT INTO Info_Installment VALUES('829374-11-382948', '매월, 1', to_date('20-01-2025','dd-mm-yyyy'), 0.025, 36, 5000000, 'Y');
-INSERT INTO Info_Installment VALUES('875658-32-372846', '매월, 30', to_date('30-08-2026','dd-mm-yyyy'), 0.03, 25, 5000000, 'Y');
-INSERT INTO Info_Installment VALUES('875657-01-839479', '매주, 일', to_date('24-08-2032','dd-mm-yyyy'), 0.042, 53, 3500000, 'Y');
-INSERT INTO Info_Installment VALUES('887658-86-829384', '매주, 월', to_date('05-05-2027','dd-mm-yyyy'), 0.039, 20, 3500000, 'N');
+INSERT INTO Info_Installment VALUES('894736-09-473826', '25', to_date('10-10-2027','dd-mm-yyyy'), 0.03, 24, 5000000, 'Y');
+INSERT INTO Info_Installment VALUES('837264-30-482945', '30', to_date('31-12-2027','dd-mm-yyyy'), 0.03, 30, 5000000, 'N');
+INSERT INTO Info_Installment VALUES('829374-11-382948', '1', to_date('20-01-2025','dd-mm-yyyy'), 0.025, 36, 5000000, 'Y');
+INSERT INTO Info_Installment VALUES('875658-32-372846', '30', to_date('30-08-2026','dd-mm-yyyy'), 0.03, 25, 5000000, 'Y');
+INSERT INTO Info_Installment VALUES('875657-01-839479', '일', to_date('24-08-2032','dd-mm-yyyy'), 0.042, 53, 3500000, 'Y');
+INSERT INTO Info_Installment VALUES('887658-86-829384', '월', to_date('05-05-2027','dd-mm-yyyy'), 0.039, 20, 3500000, 'N');
 
 --Info_Deposite--
 INSERT INTO Info_Deposite VALUES('804521-97-218432', 1, 5000000);
