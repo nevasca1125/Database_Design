@@ -5,14 +5,14 @@
 <html>  
     <head>
         <title>MJU BANK</title>
-        <link rel="stylesheet" href="frame.css">
+        <link rel="stylesheet" href="../frame.css">
     </head>
     <body>
         <div id="top_div">
             <table id="top">
                 <tr>
                     <td id="title_th1">
-                        <p id="img"><img src="mju_logo.jpg" alt="mju_logo" width="45px"></p>
+                        <p id="img"><img src="../mju_logo.jpg" alt="mju_logo" width="45px"></p>
                     </td>
                     <td id="title_th2">
                         <h3 id="title">MJU BANK</h3>

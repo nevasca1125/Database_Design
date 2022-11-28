@@ -5,14 +5,14 @@
 <html>  
     <head>
         <title>MJU BANK</title>
-        <link rel="stylesheet" href="frame.css">
+        <link rel="stylesheet" href="../frame.css">
     </head>
     <body>
         <div id="top_div">
             <table id="top">
                 <tr>
                     <td id="title_th1">
-                        <p id="img"><img src="mju_logo.jpg" alt="mju_logo" width="45px"></p>
+                        <p id="img"><img src="../mju_logo.jpg" alt="mju_logo" width="45px"></p>
                     </td>
                     <td id="title_th2">
                         <h3 id="title">MJU BANK</h3>
@@ -55,16 +55,12 @@
                 <%
                     request.setCharacterEncoding("utf-8");
                                         
-                    String Card_type = request.getParameter("card_type");
-                    String Card_goods = request.getParameter("card_goods");
-                    String Card_Number = request.getParameter("card_Num");
-                    String Card_period = request.getParameter("card_period");
-                    String Card_Account = request.getParameter("card_account");
-                    String Card_opendate = request.getParameter("card_opendate");
-                    int Card_limit = Integer.parseInt(request.getParameter("card_limit"));
+                    String Auto_SendAccount = request.getParameter("sendAccount");
+                    String Auto_ReceiveAccount = request.getParameter("receiveAccount");
                     
                     Connection conn = null;
                     PreparedStatement pstmt = null;
+                    
 
                     try{
                         Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -79,29 +75,21 @@
                 
                         conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
                     
-                        String sql = "INSERT INTO Card_List VALUES(?,?,?,?,?,?,?,?,?,?)";
+                        String sql = "DELETE FROM Automatic WHERE account_src=? and account_dest=?";
 
                         pstmt = conn.prepareStatement(sql);
-                        pstmt.setString(1,Card_goods);
-                        pstmt.setString(2,Card_type);
-                        pstmt.setString(3,Card_Number);
-                        pstmt.setString(4,Card_period);
-                        pstmt.setString(5,Card_Account);
-                        pstmt.setString(6,Card_opendate);
-                        pstmt.setInt(7,0);
-                        pstmt.setInt(8,Card_limit);
-                        pstmt.setString(9,"run");
-                        pstmt.setString(10, null);
-                        
-                        pstmt.executeUpdate();
+                    
+                        pstmt.setString(1,Auto_send_account);
+                        pstmt.setString(2,Auto_ReceiveAccount);
 
+                        pstmt.executeUpdate();
+                        
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}
                         if(conn != null) try{conn.close();} catch(SQLException ex){}
                     }
 
                 %>
-
                 <td id="main">
                     <table id="AutoTable" border="1">
                         <%
@@ -116,49 +104,37 @@
                 
                         con = DriverManager.getConnection(jdbcUrl, userId, userPass);
 
-                        String sqlRS = "SELECT * FROM Card_List";
+                        String sqlRS = "SELECT * FROM Automatic";
                         pstmtRS = con.prepareStatement(sqlRS);
                         
                         rs = pstmtRS.executeQuery();
 
                         %>
 
-                        <h2>카드 신청이 완료되었습니다.</h2>
+                        <h2>자동이체 신청 취소가 완료되었습니다.</h2>
                         <tr>
-                            <td width="100">카드상품명</td>
-                            <td width="100">카드타입</td>
-                            <td width="100">카드번호</td>
-                            <td width="100">만료날짜</td>
-                            <td width="100">연결계좌</td>
-                            <td width="100">생성날짜</td>
-                            <td width="100">결제금액(달)</td>
-                            <td width="100">한도</td>
-                            <td width="100">상태</td>
-                            <td width="100">정지사유</td>
+                            <td width="100">자동이체Id</td>
+                            <td width="100">송금계좌</td>
+                            <td width="100">입금계좌</td>
+                            <td width="100">금액</td>
+                            <td width="100">이체날짜(month)</td>
+                            <td width="100">이체요일(week)</td>
                         </tr>
                         <% while(rs.next()){ 
-                            String title = rs.getString("title");
-                            String type = rs.getString("type");
-                            String num_card = rs.getString("num_card");
-                            String date_expiration = rs.getString("date_expiration");
-                            String account = rs.getString("account");
-                            String date_create = rs.getString("date_create");
-                            String cumulative = rs.getString("cumulative");
-                            String limit = rs.getString("limit");
-                            String state = rs.getString("state");
-                            String reason = rs.getString("reason");
+                            String id = rs.getString("number_automatic");
+                            String send = rs.getString("account_src");
+                            String receive = rs.getString("account_dest");
+                            String amount = rs.getString("amount");
+                            String month = rs.getString("date_send");
+                            String week = rs.getString("day_send");
                         %>
                         <tr>
-                            <td width="100"><%= title %></td>
-                            <td width="100"><%= type %></td>
-                            <td width="100"><%= num_card %></td>
-                            <td width="100"><%= date_expiration %></td>
-                            <td width="100"><%= account %></td>
-                            <td width="100"><%= date_create %></td>
-                            <td width="100"><%= cumulative %></td>
-                            <td width="100"><%= limit %></td>
-                            <td width="100"><%= state %></td>
-                            <td width="100"><%= reason %></td>
+                            <td width="100"><%= id %></td>
+                            <td width="100"><%= send %></td>
+                            <td width="100"><%= receive %></td>
+                            <td width="100"><%= amount %></td>
+                            <td width="100"><%= month %></td>
+                            <td width="100"><%= week %></td>
                         </tr>
                         <% } %>
                     </table>
