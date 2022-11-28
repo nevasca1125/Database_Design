@@ -54,17 +54,9 @@
                 <!--정보 표현 및 기타 조작 공간-->
                 <%
                     request.setCharacterEncoding("utf-8");
+                                        
+                    String UserAccount = request.getParameter("userAccount");
                     
-                    String name = request.getParameter("C_Name");
-                    String newUserId = request.getParameter("C_UserId");
-                    String userAddress = request.getParameter("C_Address");
-                    String userBirth = request.getParameter("C_Birth");
-                    String userEmail = request.getParameter("C_Email");
-                    String userPhoneNum = request.getParameter("C_PhoneNum");
-                    String userJob = request.getParameter("C_job");
-                    int userCredit = Integer.parseInt(request.getParameter("C_credit"));
-                    String userMakeDate = request.getParameter("C_makedate");
-
                     Connection conn = null;
                     PreparedStatement pstmt = null;
 
@@ -81,18 +73,10 @@
                 
                         conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
                     
-                        String sql = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?)";
-
+                        String sql = "DELETE FROM Account_List WHERE account=?";
                         pstmt = conn.prepareStatement(sql);
-                        pstmt.setString(1,name);
-                        pstmt.setString(2,newUserId);
-                        pstmt.setString(3,userAddress);
-                        pstmt.setString(4, userBirth);
-                        pstmt.setString(5,userEmail);
-                        pstmt.setString(6,userPhoneNum);
-                        pstmt.setString(7,userJob);
-                        pstmt.setInt(8, userCredit);
-                        pstmt.setString(9, userMakeDate);
+                        pstmt.setString(1, UserAccount);
+                        
                         pstmt.executeUpdate();
 
                     }finally{
@@ -116,46 +100,40 @@
                 
                         con = DriverManager.getConnection(jdbcUrl, userId, userPass);
 
-                        String sqlRS = "SELECT * FROM Customer";
+                        String sqlRS = "SELECT * FROM Account_List";
                         pstmtRS = con.prepareStatement(sqlRS);
                         
                         rs = pstmtRS.executeQuery();
 
                         %>
 
-                        <h2>신규 유저가입이 완료되었습니다.</h2>
+                        <h2>계좌 삭제가 완료되었습니다.</h2>
                         <tr>
+                            <td width="100">계좌상품명</td>
+                            <td width="100">계좌 타입</td>
                             <td width="100">고객명</td>
                             <td width="100">주민번호</td>
-                            <td width="200">주소</td>
-                            <td width="100">생년월일</td>
-                            <td width="100">이메일</td>
-                            <td width="100">전화번호</td>
-                            <td width="100">직업</td>
-                            <td width="100">신용등급</td>
-                            <td width="100">개설일</td>
+                            <td width="100">계좌번호</td>
+                            <td width="100">계좌잔고</td>
+                            <td width="100">계좌개설일</td>
                         </tr>
                         <% while(rs.next()){ 
-                            String username = rs.getString("name");
+                            String title = rs.getString("title");
+                            String type = rs.getString("type");
+                            String owner = rs.getString("owner");
                             String num_resident = rs.getString("num_resident");
-                            String address = rs.getString("address");
-                            String date_birth = rs.getString("date_birth");
-                            String email = rs.getString("email");
-                            String phone = rs.getString("phone");
-                            String job = rs.getString("job");
-                            int rate_credit = rs.getInt("rate_credit");
-                            String date_join = rs.getString("date_join");
+                            String account = rs.getString("account");
+                            int balance = rs.getInt("balance");
+                            String date_create = rs.getString("date_create");
                         %>
                         <tr>
-                            <td width="100"><%= username %></td>
+                            <td width="100"><%= title %></td>
+                            <td width="100"><%= type %></td>
+                            <td width="100"><%= owner %></td>
                             <td width="100"><%= num_resident %></td>
-                            <td width="100"><%= address %></td>
-                            <td width="100"><%= date_birth %></td>
-                            <td width="100"><%= email %></td>
-                            <td width="100"><%= phone %></td>
-                            <td width="100"><%= job %></td>
-                            <td width="100"><%= rate_credit %></td>
-                            <td width="100"><%= date_join %></td>                        </tr>
+                            <td width="100"><%= account %></td>
+                            <td width="100"><%= balance %></td>
+                            <td width="100"><%= date_create %></td>                        </tr>
                         <% } %>
                     </table>
                 </td>

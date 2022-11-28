@@ -79,7 +79,7 @@
 
                         pstmt = conn.prepareStatement(sql);
                     
-                        pstmt.setString(1,Auto_send_account);
+                        pstmt.setString(1,Auto_SendAccount);
                         pstmt.setString(2,Auto_ReceiveAccount);
 
                         pstmt.executeUpdate();

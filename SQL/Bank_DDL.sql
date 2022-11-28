@@ -41,7 +41,7 @@ CREATE table Account_List(
     date_create DATE,
     PRIMARY KEY (account),
     FOREIGN KEY (title, type) REFERENCES Goods_Account(title, type),
-    FOREIGN KEY (owner, num_resident) REFERENCES Customer(name, num_resident) 
+    FOREIGN KEY (owner, num_resident) REFERENCES Customer(name, num_resident) ON DELETE CASCADE
 );
 
 CREATE table Card_List(
@@ -57,7 +57,7 @@ CREATE table Card_List(
     reason VARCHAR(10),
     PRIMARY KEY (num_card),
     FOREIGN KEY (title, type) REFERENCES Goods_Card(title, type),
-    FOREIGN KEY (account) REFERENCES Account_List(account)
+    FOREIGN KEY (account) REFERENCES Account_List(account) ON DELETE CASCADE
 );
 
 CREATE table Detail_Transaction(
@@ -68,7 +68,7 @@ CREATE table Detail_Transaction(
     date_trans DATE,
     account_dest VARCHAR(20),
     PRIMARY KEY (number_transaction),
-    FOREIGN KEY (card) REFERENCES Card_List(num_card)
+    FOREIGN KEY (card) REFERENCES Card_List(num_card) ON DELETE CASCADE
 );
 
 CREATE table Detail_Remittance(
@@ -78,7 +78,7 @@ CREATE table Detail_Remittance(
     amount NUMBER,
     date_remit DATE,
     PRIMARY KEY (number_remittance),
-    FOREIGN KEY (account_src) REFERENCES Account_List(account)
+    FOREIGN KEY (account_src) REFERENCES Account_List(account) ON DELETE CASCADE
 );
 
 CREATE table Automatic(
@@ -89,7 +89,7 @@ CREATE table Automatic(
     date_send VARCHAR(15),
     day_send VARCHAR(15),
     PRIMARY KEY (number_automatic),
-    FOREIGN KEY (account_src) REFERENCES Account_List(account)
+    FOREIGN KEY (account_src) REFERENCES Account_List(account) ON DELETE CASCADE
 );
 
 CREATE table Info_Installment(
@@ -101,7 +101,7 @@ CREATE table Info_Installment(
     limit_payment NUMBER,
     extension VARCHAR(5),
     PRIMARY KEY (account),
-    FOREIGN KEY (account) REFERENCES Account_List(account)
+    FOREIGN KEY (account) REFERENCES Account_List(account) ON DELETE CASCADE
 );
 
 CREATE table Info_Deposite(
@@ -109,7 +109,7 @@ CREATE table Info_Deposite(
     number_card NUMBER,
     limit NUMBER,
     PRIMARY KEY (account),
-    FOREIGN KEY (account) REFERENCES Account_List(account)
+    FOREIGN KEY (account) REFERENCES Account_List(account) ON DELETE CASCADE
 );
 
 CREATE table Info_Loans(
@@ -119,7 +119,7 @@ CREATE table Info_Loans(
     redemption NUMBER,
     rate_interest NUMBER,
     PRIMARY KEY (account),
-    FOREIGN KEY (account) REFERENCES Account_List(account)
+    FOREIGN KEY (account) REFERENCES Account_List(account) ON DELETE CASCADE
 );
 
 Drop table Info_Loans;

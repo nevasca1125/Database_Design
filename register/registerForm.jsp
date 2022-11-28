@@ -57,22 +57,24 @@
                     <td id="main">
                         <table id="register" width="500">
 
+                            <H3 class="headItem">은행등록</H3>
+
                             <!--신규고객가입-->
                             <details> 
                                 <summary>신규 고객가입</summary>
 
                                 <form name = "New_Customer" method="post" action="registerUser.jsp">
 
-                                    <p>고객명 <input type="text" name="C_Name"> </p>
-                                    <p>주민번호 <input type="text" name="C_UserId" pattern="\d{6}\-\d{7}" title = "123456-1234567 형식으로 입력해주세요."></p>
-                                    <p>주소 <input type="text" name="C_Address"></p>
-                                    <p>생년월일 <input type="text" name="C_Birth"></p>
-                                    <p>이메일 <input type="text" name="C_Email"></p>
-                                    <p>전화번호 <input type="text" name="C_PhoneNum"></p>
-                                    <p>직업 <input type="text" name="C_job"></p>
-                                    <p>신용등급 <input type="text" name="C_credit"></p>
-                                    <p>개설일 <input type="text" name="C_makedate"></p>
-                                    <p><input type="submit" name="new_customer_submit" value="가입"></p>
+                                    <p >고객명 <br><input type="text" name="C_Name"> </p>
+                                    <p >주민번호 <br><input type="text" name="C_UserId" pattern="\d{6}\-\d{7}" title = "123456-1234567 형식으로 입력해주세요."></p>
+                                    <p >주소 <br><input type="text" name="C_Address"></p>
+                                    <p >생년월일 <br><input type="text" name="C_Birth"></p>
+                                    <p >이메일<br> <input type="text" name="C_Email"></p>
+                                    <p >전화번호 <br><input type="text" name="C_PhoneNum"></p>
+                                    <p >직업 <br><input type="text" name="C_job"></p>
+                                    <p >신용등급 <br><input type="text" name="C_credit"></p>
+                                    <p >개설일 <br><input type="text" name="C_makedate"></p>
+                                    <p ><input type="submit" name="new_customer_submit" value="가입"></p>
                                 
                                 </form>
 
@@ -84,16 +86,16 @@
 
                                 <form name = "New_Account" method="post" action="registerAcc.jsp">
 
-                                    <label for = "account_type">계좌 타입</label>
+                                    <label for = "account_type">계좌 타입<br></label>
                                     <select id="account_type" name="account_type" size="1">
                                         <option value="">계좌 타입</option>
                                         <option value="예금, 보통">예금, 보통</option>
                                         <option value="적금, 정기">적금, 정기</option>
                                         <option value="적금, 자유">적금, 자유</option>
                                         <option value="대출">대출</option>
-                                    </select>
-                                    
-                                    <label for = "account_goods">계좌 상품명</label>
+                                    </select><br>
+                                    <p></p>                               
+                                    <label for = "account_goods">계좌 상품명<br></label>
                                     <select id="account_goods" name="account_goods" size="1">
                                         <option value="">상품명</option>
                                         <option value="직장인예금">직장인예금</option>
@@ -101,13 +103,13 @@
                                         <option value="명지사랑적금">명지사랑적금</option>
                                         <option value="대학생적금">대학생적금</option>
                                         <option value="명지대출통장">명지대출통장</option>
-                                    </select>
+                                    </select><br>
                                 
-                                    <p>고객명 <input type="text" name="account_userName"> </p>
-                                    <p>주민번호 <input type="text" name="account_UserId" pattern="\d{6}\-\d{7}" title = "123456-1234567 형식으로 입력해주세요."> </p>
-                                    <p>계좌번호 <input type="text" name="account_Num" pattern="\d{6}\-\d{2}\-\d{6}" title="123456-12-123456 형식으로 입력해주세요."> </p>
-                                    <p>입금금액 <input type="text" name="account_send"> </p>
-                                    <p>개설일 <input type="text" name="account_opendate"> </p>
+                                    <p>고객명 <br><input type="text" name="account_userName"> </p>
+                                    <p>주민번호 <br><input type="text" name="account_UserId" pattern="\d{6}\-\d{7}" title = "123456-1234567 형식으로 입력해주세요."> </p>
+                                    <p>계좌번호 <br><input type="text" name="account_Num" pattern="\d{6}\-\d{2}\-\d{6}" title="123456-12-123456 형식으로 입력해주세요."> </p>
+                                    <p>입금금액 <br><input type="text" name="account_send"> </p>
+                                    <p>개설일 <br><input type="text" name="account_opendate"> </p>
                                     <p><input type="submit" name="new_Account_submit" value="가입"></p>
 
                                 </form>
@@ -120,14 +122,14 @@
 
                                 <form name = "New_card" method="post" action="registerCard.jsp">
 
-                                    <label for = "card_type">카드 타입 </label>
+                                    <label for = "card_type">카드 타입 <br></label>
                                     <select id="card_type" name="card_type" size="1">
                                         <option value="">카드 타입</option>
                                         <option value="체크카드">체크카드</option>
                                         <option value="신용카드">신용카드</option>
-                                    </select>
-
-                                    <label for = "card_goods">카드 상품명</label>
+                                    </select><br>
+                                    <p></p>
+                                    <label for = "card_goods">카드 상품명<br></label>
                                     <select id="card_goods" name="card_goods" size="1">
                                         <option value="">상품명</option>
                                         <option value="청년미래카드">청년미래카드</option>
@@ -135,13 +137,13 @@
                                         <option value="교통서비스카드">교통서비스카드</option>
                                         <option value="반려동물사랑카드">반려동물사랑카드</option>
                                         <option value="직장인보너스카드">직장인보너스카드</option>
-                                    </select>
+                                    </select><br>
 
-                                    <p>카드번호 <input type="text" name="card_Num"> </p>
-                                    <p>유효기간 <input type="text" name="card_period"> </p>
-                                    <p>연결계좌 <input type="text" name="card_account"> </p>
-                                    <p>개설일 <input type="text" name="card_opendate"> </p>
-                                    <p>한도 <input type="text" name="card_limit"> </p>
+                                    <p>카드번호 <br><input type="text" name="card_Num"> </p>
+                                    <p>유효기간 <br><input type="text" name="card_period"> </p>
+                                    <p>연결계좌 <br><input type="text" name="card_account"> </p>
+                                    <p>개설일 <br><input type="text" name="card_opendate"> </p>
+                                    <p>한도 <br><input type="text" name="card_limit"> </p>
                                     <p><input type="submit" name="new_Card_submit" value="신청"></p>
                                 
                                 </form>
@@ -154,11 +156,12 @@
 
                                 <form name = "New_AutoSend" method="post" action="registerAuto.jsp">
                                 
-                                    <p>자동이체 등록번호 <input type="text" name="Auto_num"> </p>
-                                    <p>송금 계좌번호 <input type="text" name="Auto_send_account"> </p>
-                                    <p>송금 금액 <input type="text" name="Auto_send_amount"> </p>
-                                    <p>착금 계좌번호 <input type="text" name="Auto_receive_account"> </p>
+                                    <p>자동이체 등록번호 <br><input type="text" name="Auto_num"> </p>
+                                    <p>송금 계좌번호 <br><input type="text" name="Auto_send_account"> </p>
+                                    <p>송금 금액 <br><input type="text" name="Auto_send_amount"> </p>
+                                    <p>착금 계좌번호 <br><input type="text" name="Auto_receive_account"> </p>
                                     <p>매월 <input type="number" name="Auto_month" min="0" max="31" step="1" value ="(null)"></p>
+                                    <p>OR</p>
                                     <label for = "Auto_week">매주</label>
                                     <select id="Auto_week" name="Auto_week" size="1">
                                         <option></option>

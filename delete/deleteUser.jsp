@@ -55,16 +55,9 @@
                 <%
                     request.setCharacterEncoding("utf-8");
                     
-                    String name = request.getParameter("C_Name");
-                    String newUserId = request.getParameter("C_UserId");
-                    String userAddress = request.getParameter("C_Address");
-                    String userBirth = request.getParameter("C_Birth");
-                    String userEmail = request.getParameter("C_Email");
-                    String userPhoneNum = request.getParameter("C_PhoneNum");
-                    String userJob = request.getParameter("C_job");
-                    int userCredit = Integer.parseInt(request.getParameter("C_credit"));
-                    String userMakeDate = request.getParameter("C_makedate");
-
+                    String Name = request.getParameter("userName");
+                    String UserId = request.getParameter("userID");
+                    
                     Connection conn = null;
                     PreparedStatement pstmt = null;
 
@@ -81,18 +74,12 @@
                 
                         conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
                     
-                        String sql = "INSERT INTO Customer VALUES(?,?,?,?,?,?,?,?,?)";
+                        String sql = "DELETE FROM Customer WHERE name=? and num_resident=?";
 
                         pstmt = conn.prepareStatement(sql);
-                        pstmt.setString(1,name);
-                        pstmt.setString(2,newUserId);
-                        pstmt.setString(3,userAddress);
-                        pstmt.setString(4, userBirth);
-                        pstmt.setString(5,userEmail);
-                        pstmt.setString(6,userPhoneNum);
-                        pstmt.setString(7,userJob);
-                        pstmt.setInt(8, userCredit);
-                        pstmt.setString(9, userMakeDate);
+                        pstmt.setString(1,Name);
+                        pstmt.setString(2,UserId);
+                        
                         pstmt.executeUpdate();
 
                     }finally{
@@ -123,7 +110,7 @@
 
                         %>
 
-                        <h2>신규 유저가입이 완료되었습니다.</h2>
+                        <h2>유저탈퇴 처리가 완료되었습니다.</h2>
                         <tr>
                             <td width="100">고객명</td>
                             <td width="100">주민번호</td>

@@ -57,14 +57,16 @@
                     <td id="main">
                         <table id="register" width="500">
 
+                            <H3 class="headItem">은행탈퇴</H3>
+
                             <!--고객탈퇴-->
                             <details> 
                                 <summary>고객탈퇴</summary>
 
                                 <form name = "New_Customer" method="post" action="deleteUser.jsp">
 
-                                    <p>고객명<input type="text" name="userName"></p>
-                                    <p>고객 주민번호<input type="text" name="userID"></p>
+                                    <p>고객명<br><input type="text" name="userName"></p>
+                                    <p>고객 주민번호<br><input type="text" name="userID"></p>
                                     <input type="submit" value ="삭제하기">
                                 
                                 </form>
@@ -77,9 +79,7 @@
 
                                 <form name = "New_Account" method="post" action="deleteAcc.jsp">
                                     
-                                    <p>고객명<input type="text" name="userName"></p>
-                                    <p>고객 주민번호<input type="text" name="userID"></p>
-                                    <p>고객 계좌번호<input type="text" name="userAccount"></p>
+                                    <p>고객 계좌번호<br><input type="text" name="userAccount"></p>
                                     <input type="submit" value ="삭제하기">
                                   
                                 </form>
@@ -92,8 +92,8 @@
 
                                 <form name = "New_card" method="post" action="deleteCard.jsp">
 
-                                    <p>카드번호<input type="text" name="cardNum"></p>
-                                    <p>연결계좌번호<input type="text" name="cardAccount"></p>
+                                    <p>카드번호<br><input type="text" name="cardNum"></p>
+                                    <p>연결계좌번호<br><input type="text" name="cardAccount"></p>
                                     <input type="submit" value ="삭제하기">
                                     
                                 </form>
@@ -106,8 +106,8 @@
 
                                 <form name = "New_AutoSend" method="post" action="deleteAuto.jsp">
                                 
-                                    <p>신청 계좌번호<input type="text" name="sendAccount"></p>
-                                    <p>착금 계좌번호<input type="text" name="receiveAccount"></p>
+                                    <p>신청 계좌번호<br><input type="text" name="sendAccount"></p>
+                                    <p>착금 계좌번호<br><input type="text" name="receiveAccount"></p>
 
                                     <input type="submit" value ="삭제하기">
                                     
