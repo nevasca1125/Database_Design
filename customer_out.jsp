@@ -55,6 +55,33 @@
             </div>
             <div id="page_div">
                 <table id="page">
+                    <tr>
+                        <td style="vertical-align: top; height: 40px; table-layout:fixed">
+                            <table  style="padding-top: 20px;">
+                                <tr>
+                                    <td class="item2">
+                                        <a href="#" id="customer" style="color:blue; padding-left: 15px">고객조회</a>
+                                    </td>
+                                    <td class="item2">
+                                        <a href="#" id="account"  style="color:blue; padding-left: 15px">계좌조회</a>
+                                    </td>    
+                                    <td class="item2">
+                                        <a href="#" id="card"  style="color:blue; padding-left: 15px">카드조회</a>
+                                    </td> 
+                                    <td class="item2">
+                                        <a href="#" id="transaction"  style="color:blue; padding-left: 15px">거래내역조회</a>
+                                    </td> 
+                                    <td class="item2">
+                                        <a href="#" id="resmitt"  style="color:blue; padding-left: 15px">송금내역조회</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left: 20px; vertical-align: bottom; height: 60px; table-layout:fixed;color:rgb(41, 41, 171)">[고객조회]</td>
+                    </tr>
+                    <tr>
                     <td id="main" style="padding: 15px">
                         <!--정보 표현 및 기타 조작 공간-->
                         <table id="result" border="1" style="text-align: center; border-color: blue;">
@@ -63,7 +90,7 @@
                                 <td width="140">주민번호</td>
                                 <td width="260">주소</td>
                                 <td width="100">생일</td>
-                                <td width="140">이메일</td>
+                                <td width="160">이메일</td>
                                 <td width="120">전화번호</td>
                                 <td width="100">직업</td>
                                 <td width="100">신용점수</td>
@@ -117,7 +144,7 @@
                                             <td width="140"><%= num %></td>
                                             <td width="260"><%= add %></td>
                                             <td width="100"><%= birth %></td>
-                                            <td width="140"><%= email %></td>
+                                            <td width="160"><%= email %></td>
                                             <td width="120"><%= phone %></td>
                                             <td width="100"><%= job %></td>
                                             <td width="100"><%= credit %></td>
@@ -148,6 +175,7 @@
                             %>
                         </table>
                     </td>
+                    </tr>
                 </table>
             </div>
             <div id="bottom_div">

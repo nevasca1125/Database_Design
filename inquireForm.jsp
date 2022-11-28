@@ -57,23 +57,23 @@
             <div id="page_div">
                 <table id="page">
                     <tr>
-                        <td style="vertical-align: top; height: 40px">
+                        <td style="vertical-align: top; height: 40px; table-layout:fixed">
                             <table  style="padding-top: 20px;">
                                 <tr>
                                     <td class="item2">
-                                        <a href="#" id="customer" style="color:blue; padding-left: 15px">고객조회</a>
+                                        <a href="inquireForm.jsp" id="customer" style="color:blue; padding-left: 15px">고객조회</a>
                                     </td>
                                     <td class="item2">
-                                        <a href="#" id="account"  style="color:blue; padding-left: 15px">계좌조회</a>
+                                        <a href="inquireForm.jsp" id="account"  style="color:blue; padding-left: 15px">계좌조회</a>
                                     </td>    
                                     <td class="item2">
-                                        <a href="#" id="card"  style="color:blue; padding-left: 15px">카드조회</a>
+                                        <a href="inquireForm.jsp" id="card"  style="color:blue; padding-left: 15px">카드조회</a>
                                     </td> 
                                     <td class="item2">
-                                        <a href="#" id="transaction"  style="color:blue; padding-left: 15px">거래내역조회</a>
+                                        <a href="inquireForm.jsp" id="transaction"  style="color:blue; padding-left: 15px">거래내역조회</a>
                                     </td> 
                                     <td class="item2">
-                                        <a href="#" id="resmitt"  style="color:blue; padding-left: 15px">송금내역조회</a>
+                                        <a href="inquireForm.jsp" id="resmitt"  style="color:blue; padding-left: 15px">송금내역조회</a>
                                     </td>
                                 </tr>
                             </table>
@@ -87,7 +87,7 @@
                                         <!--정보 표현 및 기타 조작 공간-->
                                         <p id="guide">[고객조회] 이름과 주민번호를 입력하세요.</p>
                                         <form name="form_customer" method="post" action="customer_out.jsp" id="form">      
-                                            <p>이름 : <input type="text" name="name"></p>
+                                            <p id="">이름 : <input type="text" name="name"></p>
                                             <p><input type="submit" name="Submit" value="조회하기"></p>
                                         </form>
                                     </td>

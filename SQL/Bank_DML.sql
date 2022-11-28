@@ -25,6 +25,7 @@ INSERT INTO Customer VALUES('김수아', '881122-2222222', '경기도 용인시 
 INSERT INTO Customer VALUES('김컴공', '010806-4222222','경기도 용인시 처인구 명지로 1103',to_date('06-08-2001', 'dd-mm-yyyy'),'computer@mju.ac.kr','010-1234-1234','학생', 264, to_date('05-05-2021', 'dd-mm-yyyy'));
 INSERT INTO Customer VALUES('피카츄', '010228-3452615','경기도 용인시 처인구 태초로 24', to_date('28-02-2001', 'dd-mm-yyyy'),'pikachu@mju.ac.kr','010-4567-4567','학생', 764, to_date('02-10-2022', 'dd-mm-yyyy'));
 INSERT INTO Customer VALUES('최수영', '020503-4444444','경기도 용인시 처인구 명지로 1105',to_date('03-05-2002', 'dd-mm-yyyy'),'sooyoung@mju.ac.kr','010-3456-3456','직장인', 546, to_date('04-06-2021', 'dd-mm-yyyy'));
+INSERT INTO Customer VALUES('권미진', '010327-4112552','울산광역시 남구 팔등로 115',to_date('27-03-2002', 'dd-mm-yyyy'),'jusin1107@naver.com','010-0327-0327','학생', 674, to_date('27-11-2022', 'dd-mm-yyyy'));
 
 --Account_List--
 --<Deposite>
@@ -36,6 +37,7 @@ INSERT INTO Account_List VALUES('명지은행예금', '예금, 보통', '이상�
 INSERT INTO Account_List VALUES('명지은행예금', '예금, 보통', '배주현', '910305-2081782', '894758-42-382748', 54200, to_date('20-11-2022', 'dd-mm-yyyy'));
 INSERT INTO Account_List VALUES('명지은행예금', '예금, 보통', '송하나', '990101-2876543', '890765-23-273628', 32400, to_date('24-08-2022', 'dd-mm-yyyy'));
 INSERT INTO Account_List VALUES('직장인예금', '예금, 보통', '피카츄', '010228-3452615', '872910-43-485927', 100000, to_date('02-10-2022', 'dd-mm-yyyy'));
+INSERT INTO Account_List VALUES('명지은행예금', '예금, 보통', '권미진', '010327-4112552', '847283-60-834523', 93000, to_date('27-11-2022', 'dd-mm-yyyy'));
 --<Installment>
 INSERT INTO Account_List VALUES('명지사랑적금', '적금, 정기', '홍길동', '432002-1111111', '894736-09-473826', 1545000, to_date('10-10-2022', 'dd-mm-yyyy'));
 INSERT INTO Account_List VALUES('명지사랑적금', '적금, 정기', '김영태', '821125-1011010', '837264-30-482945', 6550000, to_date('31-12-2022', 'dd-mm-yyyy'));
@@ -43,6 +45,7 @@ INSERT INTO Account_List VALUES('명지사랑적금', '적금, 정기', '현상�
 INSERT INTO Account_List VALUES('명지사랑적금', '적금, 정기', '이상혁', '010302-3111111', '875658-32-372846', 65250000, to_date('30-08-2022', 'dd-mm-yyyy'));
 INSERT INTO Account_List VALUES('대학생적금', '적금, 자유', '송하나', '990101-2876543', '875657-01-839479', 6825000, to_date('24-08-2022', 'dd-mm-yyyy'));
 INSERT INTO Account_List VALUES('대학생적금', '적금, 자유', '김컴공', '010806-4222222', '887658-86-829384', 145000, to_date('05-05-2022', 'dd-mm-yyyy'));
+INSERT INTO Account_List VALUES('대학생적금', '적금, 자유', '권미진', '010327-4112552', '803074-17-394202', 200000, to_date('27-11-2022', 'dd-mm-yyyy'));
 --<Loan>
 INSERT INTO Account_List VALUES('명지대출통장', '대출', '김수아', '881122-2222222', '893748-02-938404', 3607000, to_date('03-10-2021', 'dd-mm-yyyy'));
 INSERT INTO Account_List VALUES('명지대출통장', '대출', '김컴공', '010806-4222222', '827384-12-837492', 2290000, to_date('10-10-2021', 'dd-mm-yyyy'));
@@ -55,16 +58,19 @@ INSERT INTO Card_List VALUES('청년미래카드', '체크카드', '310-2043-329
 INSERT INTO Card_List VALUES('청년미래카드', '체크카드', '320-4829-483-4859', to_date('25-11-2025', 'dd-mm-yyyy'), '821125-52-038274', to_date('25-11-2025', 'dd-mm-yyyy'), 452350, 1000000, 'run', null);
 INSERT INTO Card_List VALUES('교통서비스카드', '체크카드', '302-3829-485-9057', to_date('24-08-2026', 'dd-mm-yyyy'), '890765-23-273628', to_date('24-08-2022', 'dd-mm-yyyy'), 123620, 1000000, 'run', null);
 INSERT INTO Card_List VALUES('교통서비스카드', '체크카드', '348-2849-384-2291', to_date('02-10-2026', 'dd-mm-yyyy'), '872910-43-485927', to_date('02-10-2022', 'dd-mm-yyyy'), 354890, 1000000, 'run', null);
+INSERT INTO Card_List VALUES('청년미래카드', '체크카드', '327-2573-229-3940', to_date('27-11-2026', 'dd-mm-yyyy'), '847283-60-834523', to_date('27-11-2022', 'dd-mm-yyyy'), 0, 1000000, 'stop', 'lost');
 --<credit>
 INSERT INTO Card_List VALUES('반려동물사랑카드', '신용카드', '385-2839-472-4759', to_date('20-10-2026', 'dd-mm-yyyy'), '823456-34-938409', to_date('20-10-2022', 'dd-mm-yyyy'), 2045200, 5000000, 'run', null);
 INSERT INTO Card_List VALUES('반려동물사랑카드', '신용카드', '345-2345-234-4533', to_date('30-05-2026', 'dd-mm-yyyy'), '821125-52-038274', to_date('30-05-2022', 'dd-mm-yyyy'), 523450, 5000000, 'run', null);
 INSERT INTO Card_List VALUES('직장인보너스카드', '신용카드', '348-9859-023-4859', to_date('04-11-2026', 'dd-mm-yyyy'), '872910-43-485927', to_date('04-11-2022', 'dd-mm-yyyy'), 4256000, 5000000, 'run', null);
+INSERT INTO Card_List VALUES('반려동물사랑카드', '신용카드', '327-2345-905-6723', to_date('27-11-2026', 'dd-mm-yyyy'), '847283-60-834523', to_date('27-11-2022', 'dd-mm-yyyy'), 3400000, 5000000, 'run', null);
 
 --Automatic--
 INSERT INTO Automatic VALUES('10C734GH', '823456-34-938409', '894736-09-473826', 50000, '매월, 25', null);
 INSERT INTO Automatic VALUES('3DF890I2', '821125-52-038274', '837264-30-482945', 50000, '매월, 30', null);
 INSERT INTO Automatic VALUES('456DF89F', '894037-32-637284', '875658-32-372846', 100000, '매월, 30', null);
 INSERT INTO Automatic VALUES('289G678D', '890765-23-273628', '875657-01-839479', 10000, null, '매주, 일');
+INSERT INTO Automatic VALUES('839DF09O', '847283-60-834523', '803074-17-394202', 200000, '매월, 1', null);
 
 --Info_Installment--
 INSERT INTO Info_Installment VALUES('894736-09-473826', '매월, 25', to_date('10-10-2027','dd-mm-yyyy'), 0.03, 24, 5000000, 'Y');
@@ -73,6 +79,7 @@ INSERT INTO Info_Installment VALUES('829374-11-382948', '매월, 1', to_date('20
 INSERT INTO Info_Installment VALUES('875658-32-372846', '매월, 30', to_date('30-08-2026','dd-mm-yyyy'), 0.03, 25, 5000000, 'Y');
 INSERT INTO Info_Installment VALUES('875657-01-839479', '매주, 일', to_date('24-08-2032','dd-mm-yyyy'), 0.042, 53, 3500000, 'Y');
 INSERT INTO Info_Installment VALUES('887658-86-829384', '매주, 월', to_date('05-05-2027','dd-mm-yyyy'), 0.039, 20, 3500000, 'N');
+INSERT INTO Info_Installment VALUES('803074-17-394202', '매월, 1', to_date('27-11-2025','dd-mm-yyyy'), 0.042, 1, 3500000, 'Y');
 
 --Info_Deposite--
 INSERT INTO Info_Deposite VALUES('804521-97-218432', 1, 5000000);
