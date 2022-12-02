@@ -13,10 +13,10 @@
             <div id="top_div">
                 <table id="top">
                     <tr>
-                        <td id="title_td1">
+                        <td id="title_th1">
                             <p id="img"><img src="mju_logo.jpg" alt="mju_logo" width="45px"></p>
                         </td>
-                        <td id="title_td2">
+                        <td id="title_th2">
                             <h3 id="title">MJU BANK</h3>
                         </td>
                         <td id="detail" style="color: rgb(151, 151, 151); padding-left: 10px">_고객정보조회</td>
@@ -27,15 +27,15 @@
                 <table id="menu">
                     <tr>
                         <td class="item">
-                            <a id="home" class="item">Home</a>
+                            <a href="#" id="home" class="item">Home</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a id="customer_info" class="item">고객정보</a>
+                            <a href="inquireForm.jsp" id="customer_info" class="item">고객정보</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a id="goods_info" class="item">상품정보</a>
+                            <a href="#" id="goods_info" class="item">상품정보</a>
                         </td>
                         <td class="slice"></td>
                     </tr>
@@ -79,6 +79,15 @@
                                                 </td>
                                                 <td class="item3">
                                                     <input type="checkbox" name="item_number" id="item_number" class="item3"> 주민번호
+                                                </td>
+                                                <td class="item3">
+                                                    <input type="checkbox" name="item_address" id="item_address" class="item3"> 주소
+                                                </td>
+                                                <td class="item3">
+                                                    <input type="checkbox" name="item_phone" id="item_phone" class="item3"> 전화번호
+                                                </td>
+                                                <td class="item3">
+                                                    <input type="checkbox" name="item_credit" id="item_credit" class="item3"> 신용점수
                                                 </td>
                                             </tr>
                                         </table>

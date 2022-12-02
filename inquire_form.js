@@ -35,6 +35,9 @@ function makeElement(){
 
     const info_name = document.querySelector('#item_name');
     const info_number = document.querySelector('#item_number');
+    const info_address = document.querySelector('#item_address');
+    const info_phone = document.querySelector('#item_phone');
+    const info_credit = document.querySelector('#item_credit');
 
     customer.addEventListener('click', function(){
         guide.innerHTML = '[고객조회]'
@@ -106,6 +109,54 @@ function makeElement(){
             p.appendChild(input)
         }else{
             var item = document.querySelector('#number_r')
+            document.form_inquire.removeChild(item)
+        }
+    })
+
+    info_address.addEventListener('click', function(){
+        if(info_address.checked){
+            var p = document.createElement('p')
+            p.innerHTML = "주소 : "
+            p.setAttribute('id', 'address')
+            document.form_inquire.appendChild(p)
+            var input = document.createElement('input')
+            input.setAttribute('type', 'text')
+            input.setAttribute('name', 'address')
+            p.appendChild(input)
+        }else{
+            var item = document.querySelector('#address')
+            document.form_inquire.removeChild(item)
+        }
+    })
+
+    info_phone.addEventListener('click', function(){
+        if(info_phone.checked){
+            var p = document.createElement('p')
+            p.innerHTML = "전화번호 : "
+            p.setAttribute('id', 'phone')
+            document.form_inquire.appendChild(p)
+            var input = document.createElement('input')
+            input.setAttribute('type', 'text')
+            input.setAttribute('name', 'phone')
+            p.appendChild(input)
+        }else{
+            var item = document.querySelector('#phone')
+            document.form_inquire.removeChild(item)
+        }
+    })
+
+    info_credit.addEventListener('click', function(){
+        if(info_credit.checked){
+            var p = document.createElement('p')
+            p.innerHTML = "신용점수 : "
+            p.setAttribute('id', 'credit')
+            document.form_inquire.appendChild(p)
+            var input = document.createElement('input')
+            input.setAttribute('type', 'text')
+            input.setAttribute('name', 'credit')
+            p.appendChild(input)
+        }else{
+            var item = document.querySelector('#credit')
             document.form_inquire.removeChild(item)
         }
     })

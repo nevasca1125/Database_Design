@@ -86,36 +86,62 @@
                                     System.out.println("드라이버 로딩 실패");
                                 }
                                 try{
-                                    StringBuilder sd = new StringBuilder(50);
-                                    String name_c = request.getParameter("name");
-                                    String number_c = request.getParameter("number_r");
-
                                     String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
                                     String userId = "class_a";
                                     String userPass = "practice";
-                            
+
                                     conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
+
+                                    String name_c = request.getParameter("name");
+                                    String number_c = request.getParameter("number_r");
+                                    String address_c = request.getParameter("address");
+                                    String phone_c = request.getParameter("phone");
+                                    String credit_c = request.getParameter("credit");                       
                                     
                                     String sql = "SELECT * FROM Customer WHERE";
                                     
-                                    if(name_c != null)
+                                    if(name_c != null && name_c != "")
                                         sql += " name=?";
-                                    if(number_c != null)
+                                    if(number_c != null && number_c != "")
                                         sql += " num_resident=?";
+                                    if(address_c != null && address_c != "")
+                                        sql += " address=?";
+                                    if(phone_c != null && phone_c != "")
+                                        sql += " phone=?";
+                                    if(credit_c != null && credit_c != "")
+                                        sql += " rate_credit>?";
 
                                     pstmt = conn.prepareStatement(sql);
                                     
                                     int i = 1;
-                                    if(name_c != null){
+                                    if(name_c != null && name_c != ""){
                                         pstmt.setString(i, name_c);
                                         i++;
                                     }
-                                    if(number_c != null){
+                                    if(number_c != null && number_c != ""){
                                         pstmt.setString(i, number_c);
                                         i++;
                                     }
+                                    if(address_c != null && address_c != ""){
+                                        pstmt.setString(i, address_c);
+                                        i++;
+                                    }
+                                    if(phone_c != null && phone_c != ""){
+                                        pstmt.setString(i, phone_c);
+                                        i++;
+                                    }
+                                    if(credit_c != null && credit_c != ""){
+                                        pstmt.setString(i, credit_c);
+                                        i++;
+                                    }
 
-                                    rs = pstmt.executeQuery();
+                                    if(i != 1)
+                                        rs = pstmt.executeQuery();
+                                    else{
+                                        Statement stmt = conn.createStatement();
+                                        rs = stmt.executeQuery("SELECT * FROM Customer");
+                                    }
+
                                     
                                     while( rs.next() ) {
                                         String name = rs.getString("name");

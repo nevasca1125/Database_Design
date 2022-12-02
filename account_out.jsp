@@ -73,7 +73,6 @@
                             </tr>
                             <%
                                 request.setCharacterEncoding("utf-8");
-                                String n = request.getParameter("name");
                                 Connection conn = null;
                                 PreparedStatement pstmt = null;
                                 ResultSet rs = null;
@@ -91,13 +90,60 @@
                             
                                     conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
                                     
-                                    String sql = "SELECT * FROM Account_List WHERE owner=?";
-                            
+                                    String name_c = request.getParameter("name");
+                                    String number_c = request.getParameter("number_r");
+                                    String address_c = request.getParameter("address");
+                                    String phone_c = request.getParameter("phone");
+                                    String credit_c = request.getParameter("credit");                       
+                                    
+                                    String sql = "SELECT * FROM Account_List, (SELECT name, num_resident as num FROM Customer WHERE";
+                                    
+                                    if(name_c != null && name_c != "")
+                                        sql += " name=?";
+                                    if(number_c != null && number_c != "")
+                                        sql += " num_resident=?";
+                                    if(address_c != null && address_c != "")
+                                        sql += " address=?";
+                                    if(phone_c != null && phone_c != "")
+                                        sql += " phone=?";
+                                    if(credit_c != null && credit_c != "")
+                                        sql += " rate_credit>?";
+
+                                    sql += ") WHERE owner=name and num_resident=num";
+
                                     pstmt = conn.prepareStatement(sql);
-                                    pstmt.setString(1, n);
-                            
-                                    rs = pstmt.executeQuery();
+                                    
+                                    int i = 1;
+                                    if(name_c != null && name_c != ""){
+                                        pstmt.setString(i, name_c);
+                                        i++;
+                                    }
+                                    if(number_c != null && number_c != ""){
+                                        pstmt.setString(i, number_c);
+                                        i++;
+                                    }
+                                    if(address_c != null && address_c != ""){
+                                        pstmt.setString(i, address_c);
+                                        i++;
+                                    }
+                                    if(phone_c != null && phone_c != ""){
+                                        pstmt.setString(i, phone_c);
+                                        i++;
+                                    }
+                                    if(credit_c != null && credit_c != ""){
+                                        pstmt.setString(i, credit_c);
+                                        i++;
+                                    }
+
+                                    if(i != 1)
+                                        rs = pstmt.executeQuery();
+                                    else{
+                                        Statement stmt = conn.createStatement();
+                                        rs = stmt.executeQuery("SELECT * FROM Account_List");
+                                    }
+
                                     while( rs.next() ) {
+
                                         String title = rs.getString("title");
                                         String type = rs.getString("type");
                                         String owner = rs.getString("owner");
@@ -108,7 +154,7 @@
                                         create = create.replace("00:00:00", "");
                             %>
                                         <tr>
-                                            <td width="100"><%= title %></td>
+                                            <td width="10"><%= title %></td>
                                             <td width="140"><%= type %></td>
                                             <td width="140"><%= owner %></td>
                                             <td width="160"><%= number %></td>
