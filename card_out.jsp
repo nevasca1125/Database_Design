@@ -64,7 +64,7 @@
                         <table id="result" border="1" style="text-align: center; border-color: blue;">
                             <tr style="background:rgb(190, 190, 255)">
                                 <td width="140">상품명</td>
-                                <td width="120">상품타입</td>
+                                <td width="100">상품타입</td>
                                 <td width="100">이름</td>
                                 <td width="160">주민번호</td>
                                 <td width="160">카드번호</td>
@@ -74,7 +74,7 @@
                                 <td width="100">누적금액</td>
                                 <td width="100">한도</td>
                                 <td width="100">상태</td>
-                                <td width="180">사유</td>
+                                <td width="100">사유</td>
                             </tr>
                             <%
                             request.setCharacterEncoding("utf-8");
@@ -168,7 +168,7 @@
                             %>
                                         <tr>
                                             <td width="140"><%= title %></td>
-                                            <td width="120"><%= type %></td>
+                                            <td width="100"><%= type %></td>
                                             <td width="100"><%= name %></td>
                                             <td width="160"><%= num_card %></td>
                                             <td width="160"><%= number %></td>
@@ -178,7 +178,7 @@
                                             <td width="100"><%= cumulative %></td>
                                             <td width="100"><%= limit %></td>
                                             <td width="100"><%= state %></td>
-                                            <td width="180"><%= reason %></td>
+                                            <td width="100"><%= reason %></td>
                                         </tr>
                             
                             <%
