@@ -5,8 +5,8 @@
 <html>
     <head>
         <title>MJU BANK</title>
-        <link rel="stylesheet" href="frame.css">
-        <link rel="stylesheet" href="inquire.css">
+        <link rel="stylesheet" href="frameVer2.css">
+        <link rel="stylesheet" href="inquireVer2.css">
     </head>
     <body>
         <div class="frame">
@@ -48,7 +48,7 @@
                             <table style="padding-top: 20px">
                                 <tr>
                                     <td class="item2">
-                                        <a id="customer" style="color:blue; padding-left:15px">>고객조회</a>
+                                        <a id="customer" style="color:blue; padding-left:25px">>고객조회</a>
                                     </td>
                                     <td class="item2">
                                         <a id="account" style="color:blue; padding-left:15px">>계좌조회</a>
@@ -71,10 +71,20 @@
                             <table style="padding:10px">
                                 <tr id="main" style="padding-left:15px">
                                     <td>
-                                        <h4 id="guide">[고객조회]</h4>
+                                        <h3 id="guide" style="padding-left: 8px">[고객조회]</h3>
+                                        <table id="info_list">
+                                            <tr>
+                                                <td class="item3">
+                                                    <input type="checkbox" name="item_name" id="item_name" class="item3"> 이름
+                                                </td>
+                                                <td class="item3">
+                                                    <input type="checkbox" name="item_number" id="item_number" class="item3"> 주민번호
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <h4 id="guide2" style="padding-left: 8px">조회할 고객의 정보를 입력해주세요.</h4>
                                         <form name="form_inquire" method="post" action="customer_out.jsp" id="form_inquire">
-                                            <p id="input1">이름 : <input type=text name="name" id="name1"></p>
-                                            <p><input type="submit" name="Submit" value="조회하기"></p>
+                                            <p style="padding-left: 8px"><input type="submit" name="Submit" value="조회하기"></p>
                                         </form>
                                     </td>
                                 </tr>
@@ -88,6 +98,6 @@
                 </table>
             </div>
         </div>
-        <script src="inquire.js"></script>
+        <script src="inquire_form.js"></script>
     </body>
 </html>
