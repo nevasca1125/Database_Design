@@ -90,7 +90,7 @@
                         ResultSet rs = null;
 
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         con = DriverManager.getConnection(jdbcUrl, userId, userPass);
