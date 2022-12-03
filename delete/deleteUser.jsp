@@ -5,7 +5,7 @@
 <html>  
     <head>
         <title>MJU BANK</title>
-        <link rel="stylesheet" href="../frame.css">
+        <link rel="stylesheet" href="../inquire/frameVer2.css">
     </head>
     <body>
         <div id="top_div">
@@ -22,31 +22,10 @@
         </div>
         <div id="menu_div">
             <table id="menu">   
-                    <td class="item">
-                        <a href="#">하나</a>
-                    </td>
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">둘</a>
-                    </td>    
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">셋</a>
-                    </td> 
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">넷</a>
-                    </td> 
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">다섯</a>
-                    </td> 
-                    <td class="slice"></td>
-                    <td class="item">
-                        <a href="#">여섯</a>
-                    </td> 
-                    <td class="slice"></td>
-                </ul>  
+                <td class="item">
+                    <a href="../mjuBank.jsp" class="item">Home</a>
+                </td>
+                <td class="slice"></td> 
             </table>
         </div>
         <div id="page_div">
@@ -98,7 +77,7 @@
                         ResultSet rs = null;
 
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         con = DriverManager.getConnection(jdbcUrl, userId, userPass);

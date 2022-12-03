@@ -5,7 +5,7 @@
 <html>  
     <head>
         <title>MJU BANK</title>
-        <link rel="stylesheet" href="../frame.css">
+        <link rel="stylesheet" href="../inquire/frameVer2.css">
         <link rel="stylesheet" href="../inquire.css">
     </head>
     <body>
@@ -24,31 +24,10 @@
             </div>
             <div id="menu_div">
                 <table id="menu">   
-                        <td class="item">
-                            <a href="test.jsp">하나</a>
-                        </td>
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">둘</a>
-                        </td>    
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">셋</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">넷</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">다섯</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">여섯</a>
-                        </td> 
-                        <td class="slice"></td>
-                    </ul>  
+                    <td class="item">
+                        <a href="../mjuBank.jsp" class="item">Home</a>
+                    </td>
+                    <td class="slice"></td> 
                 </table>
             </div>
             <div id="page_div">
@@ -57,11 +36,11 @@
                     <td id="main">
                         <table id="register" width="500">
 
-                            <H3 class="headItem">은행등록</H3>
+                            <H3 class="headItem" style="padding-left: 15px; color: blue">[등록]</H3>
 
                             <!--신규고객가입-->
                             <details> 
-                                <summary>신규 고객가입</summary>
+                                <summary style="padding-left: 15px;">신규 고객가입</summary>
 
                                 <form name = "New_Customer" method="post" action="registerUser.jsp">
 
@@ -79,10 +58,11 @@
                                 </form>
 
                             </details>
+                            <br>
                             
                             <!--계좌 상품가입-->
                             <details>
-                                <summary>계좌 상품가입</summary>
+                                <summary style="padding-left: 15px;">계좌 상품가입</summary>
 
                                 <form name = "New_Account" method="post" action="registerAcc.jsp">
 
@@ -115,10 +95,11 @@
                                 </form>
 
                             </details>
+                            <br>
                             
                             <!--카드 신청-->
                             <details>
-                                <summary>카드 신청</summary>
+                                <summary style="padding-left: 15px;">카드 신청</summary>
 
                                 <form name = "New_card" method="post" action="registerCard.jsp">
 
@@ -149,10 +130,11 @@
                                 </form>
 
                             </details>
+                            <br>
 
                             <!--자동이체 신청-->
                             <details>
-                                <summary>자동이체 신청</summary>
+                                <summary style="padding-left: 15px;">자동이체 신청</summary>
 
                                 <form name = "New_AutoSend" method="post" action="registerAuto.jsp">
                                 
@@ -178,6 +160,7 @@
                                 </form>
 
                             </details>
+                            <br>
                         </table>
                     </td>
                 </table>

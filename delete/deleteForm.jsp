@@ -5,7 +5,7 @@
 <html>  
     <head>
         <title>MJU BANK</title>
-        <link rel="stylesheet" href="../frame.css">
+        <link rel="stylesheet" href="../inquire/frameVer2.css">
         <link rel="stylesheet" href="../inquire.css">
     </head>
     <body>
@@ -24,31 +24,10 @@
             </div>
             <div id="menu_div">
                 <table id="menu">   
-                        <td class="item">
-                            <a href="test.jsp">하나</a>
-                        </td>
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">둘</a>
-                        </td>    
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">셋</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">넷</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">다섯</a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#">여섯</a>
-                        </td> 
-                        <td class="slice"></td>
-                    </ul>  
+                    <td class="item">
+                        <a href="../mjuBank.jsp" class="item">Home</a>
+                    </td>
+                    <td class="slice"></td>
                 </table>
             </div>
             <div id="page_div">
