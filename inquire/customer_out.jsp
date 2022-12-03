@@ -27,29 +27,17 @@
                 <table id="menu">
                     <tr> 
                         <td class="item">
-                            <a href="inquireForm.jsp" id="home" class="item">HOME</a>
+                            <a href="inquireForm_customer.jsp" id="home" class="item">HOME</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="inquireForm.jsp" class="item">고객정보</a>
+                            <a href="inquireForm_customer.jsp" class="item">고객정보</a>
                         </td>    
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#" class="item">상품정보</a>
+                            <a href="inquireForm_goods.jsp" class="item">상품정보</a>
                         </td> 
                         <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>  
                     </tr>  
                 </table>
             </div>

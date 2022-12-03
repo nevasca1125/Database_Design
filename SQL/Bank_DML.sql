@@ -102,7 +102,7 @@ INSERT INTO Detail_Transaction VALUES('DF789J24', '385-2839-472-4759', 150000, '
 
 --Detail_Remittance--
 INSERT INTO Detail_Remittance VALUES('432OP049', '823456-34-938409', '894736-09-473826', 50000, to_date('25-11-2020', 'dd-mm-yyyy'));
-INSERT INTO Detail_Remittance VALUES('890DR6FS', '872910-43-485927', '78-472837-482938', 100000, to_date('20-10-2022', 'dd-mm-yyyy'));
+INSERT INTO Detail_Remittance VALUES('890DR6FG', '872910-43-485927', '821125-52-038274', 100000, to_date('20-10-2022', 'dd-mm-yyyy'));
 
 ----
 commit;

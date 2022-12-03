@@ -31,11 +31,11 @@
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="inquireForm.jsp" id="customer_info" class="item">고객정보</a>
+                            <a href="inquireForm_customer.jsp" id="customer_info" class="item">고객정보</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#" id="goods_info" class="item">상품정보</a>
+                            <a href="inquireForm_goods.jsp" id="goods_info" class="item">상품정보</a>
                         </td>
                         <td class="slice"></td>
                     </tr>
@@ -61,6 +61,9 @@
                                     </td>
                                     <td class="item2">
                                         <a id="resmitt" style="color:blue; padding-left:15px">>송금내역조회</a>
+                                    </td>
+                                    <td class="item2">
+                                        <a id="auto" style="color:blue; padding-left:15px">>자동이체조회</a>
                                     </td>
                                 </tr>
                             </table>
@@ -107,6 +110,6 @@
                 </table>
             </div>
         </div>
-        <script src="inquire_form.js"></script>
+        <script src="customer.js"></script>
     </body>
 </html>

@@ -27,54 +27,37 @@
                 <table id="menu">
                     <tr> 
                         <td class="item">
-                            <a href="inquireForm.jsp" id="home" class="item">HOME</a>
+                            <a href="inquireForm_customer.jsp" id="home" class="item">HOME</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="inquireForm.jsp" class="item">고객정보</a>
+                            <a href="inquireForm_customer.jsp" class="item">고객정보</a>
                         </td>    
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#" class="item">상품정보</a>
+                            <a href="inquireForm_goods.jsp" class="item">상품정보</a>
                         </td> 
                         <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>  
                     </tr>  
                 </table>
             </div>
             <div id="page_div">
                 <table id="page">
                     <tr>
-                        <td style="padding-left: 15px; color: blue; font-size: 20px; height: 20px; padding-top: 15px">[카드조회]</td>
+                        <td style="padding-left: 15px; color: blue; font-size: 20px; height: 20px; padding-top: 15px">[송금내역조회]</td>
                     </tr>
                     <tr>
                     <td id="main" style="padding: 15px">
                         <!--정보 표현 및 기타 조작 공간-->
                         <table id="result" border="1" style="text-align: center; border-color: blue;">
                             <tr style="background:rgb(190, 190, 255)">
-                                <td width="140">상품명</td>
-                                <td width="100">상품타입</td>
-                                <td width="100">이름</td>
-                                <td width="160">주민번호</td>
-                                <td width="160">카드번호</td>
-                                <td width="100">유효기간</td>
-                                <td width="160">연결계좌번호</td>
-                                <td width="120">개설일자</td>
-                                <td width="100">누적금액</td>
-                                <td width="100">한도</td>
-                                <td width="100">상태</td>
-                                <td width="100">사유</td>
+                                <td width="160">송금번호</td>
+                                <td width="140">송금계좌 소유주</td>
+                                <td width="160">송금계좌</td>
+                                <td width="140">착금계좌 소유주</td>
+                                <td width="160">착금계좌</td>
+                                <td width="100">송금금액</td>
+                                <td width="100">송금일자</td>
                             </tr>
                             <%
                             request.setCharacterEncoding("utf-8");
@@ -101,7 +84,7 @@
                                 String phone_c = request.getParameter("phone");
                                 String credit_c = request.getParameter("credit");                       
                                 
-                                String sql = "SELECT * FROM Card_List, (SELECT account as acc, name, num_resident FROM Account_List, (SELECT name, num_resident as num FROM Customer WHERE";
+                                String sql = "SELECT * FROM Detail_Remittance, (SELECT account as src, owner as owner_s, num_resident FROM Account_List, (SELECT name, num_resident as num FROM Customer WHERE";
                                 
                                 if(name_c != null && name_c != "")
                                     sql += " name=?";
@@ -114,7 +97,7 @@
                                 if(credit_c != null && credit_c != "")
                                     sql += " rate_credit>?";
 
-                                sql += ") WHERE owner=name and num_resident=num) WHERE account=acc";
+                                sql += ") WHERE owner=name and num_resident=num), (SELECT account as dest, owner as owner_d FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num) WHERE account_src=src and account_dest=dest";
 
                                 pstmt = conn.prepareStatement(sql);
                                 
@@ -144,41 +127,28 @@
                                     rs = pstmt.executeQuery();
                                 else{
                                     Statement stmt = conn.createStatement();
-                                    rs = stmt.executeQuery("SELECT * FROM Card_List, (SELECT account as acc, name, customer.num_resident FROM Account_List, Customer WHERE owner=name and Account_List.num_resident=Customer.num_resident) WHERE account = acc");
+                                    rs = stmt.executeQuery("SELECT * FROM Detail_Remittance, (SELECT account as src, owner as owner_s, num_resident FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num), (SELECT account as dest, owner as owner_d FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num) WHERE account_src=src and account_dest=dest");
                                 }
 
                                 while( rs.next() ) {
 
-                                    String title = rs.getString("title");
-                                    String type = rs.getString("type");
-                                    String name = rs.getString("name");
-                                    String number = rs.getString("num_resident");
-                                    String num_card = rs.getString("num_card");
-                                    String date_expiration = rs.getString("date_expiration");
-                                    String account = rs.getString("account");
-                                    String date_create = rs.getString("date_create");
-                                    String cumulative = rs.getString("cumulative");
-                                    String limit = rs.getString("limit");
-                                    String state = rs.getString("state");
-                                    String reason = rs.getString("reason");
-                                    if(reason == null)
-                                        reason = "";
-                                    date_expiration = date_expiration.replace("00:00:00", "");
-                                    date_create = date_create.replace("00:00:00", "");
+                                    String number = rs.getString("number_remittance");
+                                    String owner_s = rs.getString("owner_s");
+                                    String source = rs.getString("account_src");
+                                    String owner_d = rs.getString("owner_d");
+                                    String destination = rs.getString("account_dest");
+                                    String amount = rs.getString("amount");
+                                    String date = rs.getString("date_remit");
+                                    date = date.replace("00:00:00", "");
                             %>
                                         <tr>
-                                            <td width="140"><%= title %></td>
-                                            <td width="100"><%= type %></td>
-                                            <td width="100"><%= name %></td>
-                                            <td width="160"><%= num_card %></td>
                                             <td width="160"><%= number %></td>
-                                            <td width="100"><%= date_expiration %></td>
-                                            <td width="160"><%= account %></td>
-                                            <td width="120"><%= date_create %></td>
-                                            <td width="100"><%= cumulative %></td>
-                                            <td width="100"><%= limit %></td>
-                                            <td width="100"><%= state %></td>
-                                            <td width="100"><%= reason %></td>
+                                            <td width="140"><%= owner_s %></td>
+                                            <td width="160"><%= source %></td>
+                                            <td width="140"><%= owner_d %></td>
+                                            <td width="160"><%= destination %></td>
+                                            <td width="100"><%= amount %></td>
+                                            <td width="100"><%= date %></td>
                                         </tr>
                             
                             <%

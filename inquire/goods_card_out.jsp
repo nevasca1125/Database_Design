@@ -19,7 +19,7 @@
                         <td id="title_th2">
                             <h3 id="title">MJU BANK</h3>
                         </td>
-                        <td id="detail" style="color: rgb(151, 151, 151); padding-left: 10px">_고객정보조회</td>
+                        <td id="detail" style="color: rgb(151, 151, 151); padding-left: 10px">_상품정보조회</td>
                     </tr>
                 </table>
             </div>
@@ -27,49 +27,35 @@
                 <table id="menu">
                     <tr> 
                         <td class="item">
-                            <a href="inquireForm.jsp" id="home" class="item">HOME</a>
+                            <a href="inquireForm_customer.jsp" id="home" class="item">HOME</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="inquireForm.jsp" class="item">고객정보</a>
+                            <a href="inquireForm_customer.jsp" class="item">고객정보</a>
                         </td>    
                         <td class="slice"></td>
                         <td class="item">
-                            <a href="#" class="item">상품정보</a>
+                            <a href="inquireForm_goods.jsp" class="item">상품정보</a>
                         </td> 
                         <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>
-                        <td class="item">
-                            <a href="#" class="item"></a>
-                        </td> 
-                        <td class="slice"></td>  
                     </tr>  
                 </table>
             </div>
             <div id="page_div">
                 <table id="page">
                     <tr>
-                        <td style="padding-left: 15px; color: blue; font-size: 20px; height: 20px; padding-top: 15px">[계좌조회]</td>
+                        <td style="padding-left: 15px; color: blue; font-size: 20px; height: 20px; padding-top: 15px">[카드상품조회]</td>
                     </tr>
                     <tr>
                     <td id="main" style="padding: 15px">
                         <!--정보 표현 및 기타 조작 공간-->
                         <table id="result" border="1" style="text-align: center; border-color: blue;">
                             <tr style="background:rgb(190, 190, 255)">
-                                <td width="100">상품명</td>
-                                <td width="140">상품타입</td>
-                                <td width="140">소유주</td>
-                                <td width="160">주민번호</td>
-                                <td width="160">계좌번호</td>
-                                <td width="120">잔액</td>
-                                <td width="100">생성일자</td>
+                                <td width="140">상품명</td>
+                                <td width="100">상품타입</td>
+                                <td width="100">최대한도</td>
+                                <td width="160">혜택</td>
+                                <td width="180">가입대상</td>
                             </tr>
                             <%
                                 request.setCharacterEncoding("utf-8");
@@ -87,51 +73,42 @@
                                     String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
                                     String userId = "class_a";
                                     String userPass = "practice";
-                            
-                                    conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
-                                    
-                                    String name_c = request.getParameter("name");
-                                    String number_c = request.getParameter("number_r");
-                                    String address_c = request.getParameter("address");
-                                    String phone_c = request.getParameter("phone");
-                                    String credit_c = request.getParameter("credit");                       
-                                    
-                                    String sql = "SELECT * FROM Account_List, (SELECT name, num_resident as num FROM Customer WHERE";
-                                    
-                                    if(name_c != null && name_c != "")
-                                        sql += " name=?";
-                                    if(number_c != null && number_c != "")
-                                        sql += " num_resident=?";
-                                    if(address_c != null && address_c != "")
-                                        sql += " address=?";
-                                    if(phone_c != null && phone_c != "")
-                                        sql += " phone=?";
-                                    if(credit_c != null && credit_c != "")
-                                        sql += " rate_credit>?";
 
-                                    sql += ") WHERE owner=name and num_resident=num";
+                                    conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
+
+                                    String title_g = request.getParameter("title");   
+                                    String type_g = request.getParameter("type");      
+                                    String target_g = request.getParameter("target");   
+                                    String interest_g = request.getParameter("interest");             
+                                    
+                                    String sql = "SELECT * FROM Goods_Card WHERE";
+                                    
+                                    if(title_g != null && title_g != "")
+                                        sql += " title=?";
+                                    if(type_g != null && type_g != "")
+                                        sql += " type=?";
+                                    if(target_g != null && target_g != "")
+                                        sql += " target=?";
+                                    if(interest_g != null && interest_g != "")
+                                        sql += " rate_interest>?";
 
                                     pstmt = conn.prepareStatement(sql);
                                     
                                     int i = 1;
-                                    if(name_c != null && name_c != ""){
-                                        pstmt.setString(i, name_c);
+                                    if(title_g != null && title_g != ""){
+                                        pstmt.setString(i, title_g);
                                         i++;
                                     }
-                                    if(number_c != null && number_c != ""){
-                                        pstmt.setString(i, number_c);
+                                    if(type_g != null && type_g != ""){
+                                        pstmt.setString(i, type_g);
                                         i++;
                                     }
-                                    if(address_c != null && address_c != ""){
-                                        pstmt.setString(i, address_c);
+                                    if(target_g != null && target_g != ""){
+                                        pstmt.setString(i, target_g);
                                         i++;
                                     }
-                                    if(phone_c != null && phone_c != ""){
-                                        pstmt.setString(i, phone_c);
-                                        i++;
-                                    }
-                                    if(credit_c != null && credit_c != ""){
-                                        pstmt.setString(i, credit_c);
+                                    if(interest_g != null && interest_g != ""){
+                                        pstmt.setString(i, interest_g);
                                         i++;
                                     }
 
@@ -139,28 +116,23 @@
                                         rs = pstmt.executeQuery();
                                     else{
                                         Statement stmt = conn.createStatement();
-                                        rs = stmt.executeQuery("SELECT * FROM Account_List");
+                                        rs = stmt.executeQuery("SELECT * FROM Goods_Card");
                                     }
 
+                                    
                                     while( rs.next() ) {
-
                                         String title = rs.getString("title");
                                         String type = rs.getString("type");
-                                        String owner = rs.getString("owner");
-                                        String number = rs.getString("num_resident");
-                                        String account = rs.getString("account");
-                                        String balance= rs.getString("balance");
-                                        String create = rs.getString("date_create");
-                                        create = create.replace("00:00:00", "");
+                                        String limit = rs.getString("limit");
+                                        String benefit = rs.getString("benefit");
+                                        String target = rs.getString("target");
                             %>
                                         <tr>
-                                            <td width="10"><%= title %></td>
-                                            <td width="140"><%= type %></td>
-                                            <td width="140"><%= owner %></td>
-                                            <td width="160"><%= number %></td>
-                                            <td width="160"><%= account %></td>
-                                            <td width="120"><%= balance %></td>
-                                            <td width="100"><%= create %></td>
+                                            <td width="140"><%= title %></td>
+                                            <td width="100"><%= type %></td>
+                                            <td width="100"><%= limit %></td>
+                                            <td width="160"><%= benefit %></td>
+                                            <td width="180"><%= target %></td>
                                         </tr>
                             
                             <%

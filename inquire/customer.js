@@ -1,37 +1,12 @@
-function makeElement(){
-    const form = document.querySelector('#form_inquire');
-
-    const name = document.getElementById('item_name');
-
-    if(name.checked){
-        let n = document.createElement('p');
-        n.setAttribute('id', 'name');
-        form.appendChild(n);
-        let na = document.querySelector('#name');
-        let info_name = document.createElement('input');
-        info_name.setAttribute('type', 'text');
-        info_name.setAttribute('name', 'name');
-    }else{
-        let na = document.querySelector('#name');
-        form.removeChild(na);
-    }
-}
-
-
 (function(){
-    const detail = document.querySelector('#detail');
     const guide = document.querySelector('#guide');
-    const guide2 = document.querySelector('#guide2');
-
-    const home = document.querySelector('#home');
-    const customer_info = document.querySelector('#customer_info');
-    const goods = document.querySelector('#goods_info');
 
     const customer = document.querySelector('#customer');
     const account = document.querySelector('#account');
     const card = document.querySelector('#card');
     const trans = document.querySelector('#transaction');
     const resm = document.querySelector('#resmitt');
+    const auto = document.querySelector('#auto');
 
     const info_name = document.querySelector('#item_name');
     const info_number = document.querySelector('#item_number');
@@ -41,7 +16,6 @@ function makeElement(){
 
     customer.addEventListener('click', function(){
         guide.innerHTML = '[고객조회]'
-        guide2.innerHTML = '조회할 고객의 정보를 입력해주세요.'
         document.form_inquire.action = "customer_out.jsp"
     })
 
@@ -65,19 +39,9 @@ function makeElement(){
         document.form_inquire.action = "resmitt_out.jsp"
     })
 
-    home.addEventListener('click', function(){
-        detail.innerHTML = '_HOME'
-        guide.innerHTML = '&nbsp;'
-    })
-
-    customer_info.addEventListener('click', function(){
-        detail.innerHTML = '_고객정보조회'
-        guide.innerHTML = '[고객조회]'
-        guide2.innerHTML = '조회할 고객의 정보를 입력해주세요.'
-    })
-
-    goods.addEventListener('click', function(){
-        detail.innerHTML = '_상품정보조회'
+    auto.addEventListener('click', function(){
+        guide.innerHTML = '[자동이체 목록조회]'
+        document.form_inquire.action = "auto_out.jsp"
     })
 
     info_name.addEventListener('click', function(){
