@@ -26,7 +26,7 @@ body{
     height: 30px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    float: bottom;
+
 }
 
 #title_th1{
@@ -63,6 +63,15 @@ body{
 }
 
 .item{
+    color:rgb(199, 200, 203);
+    font-size: 16px;
+    width: 80px;
+    text-align: center;
+}
+
+.item_td{
+    color:rgb(199, 200, 203);
+    font-size: 16px;
     width: 80px;
     text-align: center;
 }
@@ -72,14 +81,8 @@ body{
     height: 26px;
 }
 
-
-a{
-    color:rgb(199, 200, 203);
-    font-size: 16px;
-}
-
 #main{
-    vertical-align: top;;
+    vertical-align: top;
 }
 
 .frame{

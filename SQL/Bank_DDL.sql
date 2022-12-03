@@ -12,7 +12,7 @@ CREATE table Goods_Account(
     type VARCHAR(20),
     limit NUMBER,
     rate_interest NUMBER,
-    interset_prefer NUMBER,
+    interest_prefer NUMBER,
     target VARCHAR(100),
     content VARCHAR(100),
     PRIMARY KEY (title, type)
