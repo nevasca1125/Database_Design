@@ -36,7 +36,7 @@
                     <td id="main">
                         <table id="register" width="500">
 
-                            <H3 class="headItem" style="padding-left: 15px; color: blue">[은행탈퇴]</H3>
+                            <H3 class="headItem" style="padding-left: 15px; color: blue">[탈퇴]</H3>
 
                             <!--고객탈퇴-->
                             <details> 
