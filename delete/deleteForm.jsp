@@ -42,7 +42,7 @@
                             <details> 
                                 <summary style="padding-left: 15px;">고객탈퇴</summary>
 
-                                <form name = "New_Customer" method="post" action="deleteUser.jsp">
+                                <form name = "New_Customer" method="post" action="deleteUser2.jsp">
 
                                     <p style="padding-left: 15px;">고객명<br><input type="text" name="userName"></p>
                                     <p style="padding-left: 15px;">고객 주민번호<br><input type="text" name="userID"></p>
@@ -57,7 +57,7 @@
                             <details>
                                 <summary style="padding-left: 15px;">계좌 삭제</summary>
 
-                                <form name = "New_Account" method="post" action="deleteAcc.jsp">
+                                <form name = "New_Account" method="post" action="deleteAcc2.jsp">
                                     
                                     <p style="padding-left: 15px;">고객 계좌번호<br><input type="text" name="userAccount"></p>
                                     <input type="submit" value ="삭제하기" style="padding-left: 15px;">
@@ -71,7 +71,7 @@
                             <details>
                                 <summary style="padding-left: 15px;">카드 삭제</summary>
 
-                                <form name = "New_card" method="post" action="deleteCard.jsp">
+                                <form name = "New_card" method="post" action="deleteCard2.jsp">
 
                                     <p style="padding-left: 15px;">카드번호<br><input type="text" name="cardNum"></p>
                                     <p style="padding-left: 15px;">연결계좌번호<br><input type="text" name="cardAccount"></p>
@@ -86,7 +86,7 @@
                             <details>
                                 <summary style="padding-left: 15px;">자동이체 신청취소</summary>
 
-                                <form name = "New_AutoSend" method="post" action="deleteAuto.jsp">
+                                <form name = "New_AutoSend" method="post" action="deleteAuto2.jsp">
                                 
                                     <p style="padding-left: 15px;">신청 계좌번호<br><input type="text" name="sendAccount"></p>
                                     <p style="padding-left: 15px;">착금 계좌번호<br><input type="text" name="receiveAccount"></p>

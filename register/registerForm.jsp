@@ -42,7 +42,7 @@
                             <details> 
                                 <summary style="padding-left: 15px;">신규 고객가입</summary>
 
-                                <form name = "New_Customer" method="post" action="registerUser.jsp">
+                                <form name = "New_Customer" method="post" action="registerUser2.jsp">
 
                                     <p style="padding-left: 15px;" >고객명 <br><input type="text" name="C_Name"> </p>
                                     <p style="padding-left: 15px;" >주민번호 <br><input type="text" name="C_UserId" pattern="\d{6}\-\d{7}" title = "123456-1234567 형식으로 입력해주세요."></p>
@@ -64,7 +64,7 @@
                             <details>
                                 <summary style="padding-left: 15px;">계좌 상품가입</summary>
 
-                                <form name = "New_Account" method="post" action="registerAcc.jsp">
+                                <form name = "New_Account" method="post" action="registerAcc2.jsp">
 
                                     <label style="padding-left: 15px;" for = "account_type">계좌 타입<br></label>
                                     <select style="padding-left: 15px;" id="account_type" name="account_type" size="1">
@@ -101,7 +101,7 @@
                             <details>
                                 <summary style="padding-left: 15px;">카드 신청</summary>
 
-                                <form name = "New_card" method="post" action="registerCard.jsp">
+                                <form name = "New_card" method="post" action="registerCard2.jsp">
 
                                     <label style="padding-left: 15px;" for = "card_type">카드 타입 <br></label>
                                     <select style="padding-left: 15px;" id="card_type" name="card_type" size="1">
@@ -136,7 +136,7 @@
                             <details>
                                 <summary style="padding-left: 15px;">자동이체 신청</summary>
 
-                                <form name = "New_AutoSend" method="post" action="registerAuto.jsp">
+                                <form name = "New_AutoSend" method="post" action="registerAuto2.jsp">
                                 
                                     <p style="padding-left: 15px;">자동이체 등록번호 <br><input type="text" name="Auto_num"> </p>
                                     <p style="padding-left: 15px;">송금 계좌번호 <br><input type="text" name="Auto_send_account"> </p>
