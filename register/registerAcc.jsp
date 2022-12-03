@@ -53,7 +53,7 @@
                     }
                     try{
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         conn = DriverManager.getConnection(jdbcUrl, userId, userPass);

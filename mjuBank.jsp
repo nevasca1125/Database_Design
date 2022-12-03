@@ -5,7 +5,7 @@
 <html>
     <head>
         <title>MJU BANK</title>
-        <link rel="stylesheet" href="frameVer2.css">
+        <link rel="stylesheet" href="inquire/frameVer2.css">
     </head>
     <body>
         <div class="frame">
@@ -26,6 +26,14 @@
                     <tr>
                         <td class="item">
                             <a href="inquire/inquireForm_customer.jsp" class="item">조회</a>
+                        </td>
+                        <td class="slice"></td>
+                        <td class="item">
+                            <a href="register/registerForm.jsp" class="item">등록</a>
+                        </td>
+                        <td class="slice"></td>
+                        <td class="item">
+                            <a href="delete/deleteForm.jsp" class="item">삭제</a>
                         </td>
                         <td class="slice"></td>
                     </tr>                    
