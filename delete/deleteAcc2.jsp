@@ -6,6 +6,12 @@
     <head>
         <title>MJU BANK</title>
         <link rel="stylesheet" href="../inquire/frameVer2.css">
+        <style>
+            .a{
+                border: 1px solid black;
+                background-color: white;
+            }
+        </style>
     </head>
     <body>
         <div id="top_div">
@@ -47,7 +53,7 @@
                     }
                     try{
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -66,7 +72,10 @@
                 %>
 
                 <td id="main">
-                    <table id="AutoTable" border="1">
+                    <table id="AutoTable" style="
+                    text-align: center;
+                    border: 2px solid black;
+                    border-collapse: collapse;">
                         <%
 
                         PreparedStatement pstmtRS = null;
@@ -74,7 +83,7 @@
                         ResultSet rs = null;
 
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         con = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -88,13 +97,13 @@
 
                         <h2>계좌 삭제가 완료되었습니다.</h2>
                         <tr>
-                            <td width="100">계좌상품명</td>
-                            <td width="100">계좌 타입</td>
-                            <td width="100">고객명</td>
-                            <td width="100">주민번호</td>
-                            <td width="100">계좌번호</td>
-                            <td width="100">계좌잔고</td>
-                            <td width="100">계좌개설일</td>
+                            <td class="a" width="100">계좌상품명</td>
+                            <td class="a" width="100">계좌 타입</td>
+                            <td class="a" width="60">고객명</td>
+                            <td class="a" width="140">주민번호</td>
+                            <td class="a" width="200">계좌번호</td>
+                            <td class="a" width="100">계좌잔고</td>
+                            <td class="a" width="100">계좌개설일</td>
                         </tr>
                         <% while(rs.next()){ 
                             String title = rs.getString("title");
@@ -106,13 +115,13 @@
                             String date_create = rs.getString("date_create");
                         %>
                         <tr>
-                            <td width="100"><%= title %></td>
-                            <td width="100"><%= type %></td>
-                            <td width="100"><%= owner %></td>
-                            <td width="100"><%= num_resident %></td>
-                            <td width="100"><%= account %></td>
-                            <td width="100"><%= balance %></td>
-                            <td width="100"><%= date_create %></td>                        </tr>
+                            <td class="a" width="100"><%= title %></td>
+                            <td class="a" width="100"><%= type %></td>
+                            <td class="a" width="60"><%= owner %></td>
+                            <td class="a" width="140"><%= num_resident %></td>
+                            <td class="a" width="200"><%= account %></td>
+                            <td class="a" width="100"><%= balance %></td>
+                            <td class="a" width="100"><%= date_create %></td>                        </tr>
                         <% } %>
                     </table>
                 </td>

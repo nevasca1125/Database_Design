@@ -6,6 +6,12 @@
     <head>
         <title>MJU BANK</title>
         <link rel="stylesheet" href="../inquire/frameVer2.css">
+        <style>
+            .a{
+                border: 1px solid black;
+                background-color: white;
+            }
+        </style>
     </head>
     <body>
         <div id="top_div">
@@ -55,7 +61,7 @@
                     }
                     try{
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -82,7 +88,10 @@
                 %>
 
                 <td id="main">
-                    <table id="AutoTable" border="1">
+                    <table id="AutoTable"style="
+                    text-align: center;  
+                    border: 2px solid black;
+                    border-collapse: collapse;">
                         <%
 
                         PreparedStatement pstmtRS = null;
@@ -90,7 +99,7 @@
                         ResultSet rs = null;
 
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         con = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -103,16 +112,16 @@
                         %>
 
                         <h2>신규 유저가입이 완료되었습니다.</h2>
-                        <tr>
-                            <td width="100">고객명</td>
-                            <td width="100">주민번호</td>
-                            <td width="200">주소</td>
-                            <td width="100">생년월일</td>
-                            <td width="100">이메일</td>
-                            <td width="100">전화번호</td>
-                            <td width="100">직업</td>
-                            <td width="100">신용등급</td>
-                            <td width="100">개설일</td>
+                        <tr class="a">
+                            <td class="a"width="60">고객명</td>
+                            <td class="a"width="140">주민번호</td>
+                            <td class="a"width="300">주소</td>
+                            <td class="a"width="100">생년월일</td>
+                            <td class="a"width="100">이메일</td>
+                            <td class="a"width="150">전화번호</td>
+                            <td class="a"width="50">직업</td>
+                            <td class="a"width="70">신용등급</td>
+                            <td class="a"width="100">개설일</td>
                         </tr>
                         <% while(rs.next()){ 
                             String username = rs.getString("name");
@@ -126,15 +135,15 @@
                             String date_join = rs.getString("date_join");
                         %>
                         <tr>
-                            <td width="100"><%= username %></td>
-                            <td width="100"><%= num_resident %></td>
-                            <td width="100"><%= address %></td>
-                            <td width="100"><%= date_birth %></td>
-                            <td width="100"><%= email %></td>
-                            <td width="100"><%= phone %></td>
-                            <td width="100"><%= job %></td>
-                            <td width="100"><%= rate_credit %></td>
-                            <td width="100"><%= date_join %></td>                        </tr>
+                            <td class="a" width="60"><%= username %></td>
+                            <td class="a" width="140"><%= num_resident %></td>
+                            <td class="a" width="300"><%= address %></td>
+                            <td class="a" width="100"><%= date_birth %></td>
+                            <td class="a" width="100"><%= email %></td>
+                            <td class="a" width="150"><%= phone %></td>
+                            <td class="a" width="50"><%= job %></td>
+                            <td class="a" width="70"><%= rate_credit %></td>
+                            <td class="a" width="100"><%= date_join %></td>                        </tr>
                         <% } %>
                     </table>
                 </td>

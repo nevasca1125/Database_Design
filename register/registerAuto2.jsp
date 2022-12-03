@@ -6,6 +6,12 @@
     <head>
         <title>MJU BANK</title>
         <link rel="stylesheet" href="../inquire/frameVer2.css">
+        <style>
+            .a{
+                border: 1px solid black;
+                background-color: white;
+            }
+        </style>
     </head>
     <body>
         <div id="top_div">
@@ -53,7 +59,7 @@
                     }
                     try{
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -78,7 +84,10 @@
 
                 %>
                 <td id="main">
-                    <table id="AutoTable" border="1">
+                    <table id="AutoTable" style="
+                    text-align: center;  
+                    border: 2px solid black;
+                    border-collapse: collapse;">
                         <%
 
                         PreparedStatement pstmtRS = null;
@@ -86,7 +95,7 @@
                         ResultSet rs = null;
 
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         con = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -100,12 +109,12 @@
 
                         <h2>자동이체 신청이 완료되었습니다.</h2>
                         <tr>
-                            <td width="100">자동이체Id</td>
-                            <td width="100">송금계좌</td>
-                            <td width="100">입금계좌</td>
-                            <td width="100">금액</td>
-                            <td width="100">이체날짜(month)</td>
-                            <td width="100">이체요일(week)</td>
+                            <td class="a" width="100">자동이체Id</td>
+                            <td class="a" width="200">송금계좌</td>
+                            <td class="a" width="200">입금계좌</td>
+                            <td class="a" width="80">금액</td>
+                            <td class="a" width="80">이체날짜(month)</td>
+                            <td class="a" width="80">이체요일(week)</td>
                         </tr>
                         <% while(rs.next()){ 
                             String id = rs.getString("number_automatic");
@@ -116,12 +125,12 @@
                             String week = rs.getString("day_send");
                         %>
                         <tr>
-                            <td width="100"><%= id %></td>
-                            <td width="100"><%= send %></td>
-                            <td width="100"><%= receive %></td>
-                            <td width="100"><%= amount %></td>
-                            <td width="100"><%= month %></td>
-                            <td width="100"><%= week %></td>
+                            <td class="a" width="100"><%= id %></td>
+                            <td class="a" width="200"><%= send %></td>
+                            <td class="a" width="200"><%= receive %></td>
+                            <td class="a" width="80"><%= amount %></td>
+                            <td class="a" width="80"><%= month %></td>
+                            <td class="a" width="80"><%= week %></td>
                         </tr>
                         <% } %>
                     </table>

@@ -6,6 +6,12 @@
     <head>
         <title>MJU BANK</title>
         <link rel="stylesheet" href="../inquire/frameVer2.css">
+        <style>
+            .a{
+                border: 1px solid black;
+                background-color: white;
+            }
+        </style>
     </head>
     <body>
         <div id="top_div">
@@ -49,7 +55,7 @@
                     }
                     try{
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -70,7 +76,10 @@
 
                 %>
                 <td id="main">
-                    <table id="AutoTable" border="1">
+                    <table id="AutoTable" style="
+                    text-align: center;
+                    border: 2px solid black;
+                    border-collapse: collapse;">
                         <%
 
                         PreparedStatement pstmtRS = null;
@@ -78,7 +87,7 @@
                         ResultSet rs = null;
 
                         String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-                        String userId = "chowon";
+                        String userId = "class_a";
                         String userPass = "practice";
                 
                         con = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -92,16 +101,16 @@
 
                         <h2>카드 삭제가 완료되었습니다.</h2>
                         <tr>
-                            <td width="100">카드상품명</td>
-                            <td width="100">카드타입</td>
-                            <td width="100">카드번호</td>
-                            <td width="100">만료날짜</td>
-                            <td width="100">연결계좌</td>
-                            <td width="100">생성날짜</td>
-                            <td width="100">결제금액(달)</td>
-                            <td width="100">한도</td>
-                            <td width="100">상태</td>
-                            <td width="100">정지사유</td>
+                            <td class="a" width="120">카드상품명</td>
+                            <td class="a" width="100">카드타입</td>
+                            <td class="a" width="200">카드번호</td>
+                            <td class="a" width="100">만료날짜</td>
+                            <td class="a" width="200">연결계좌</td>
+                            <td class="a" width="100">생성날짜</td>
+                            <td class="a" width="100">결제금액(달)</td>
+                            <td class="a" width="100">한도</td>
+                            <td class="a" width="50">상태</td>
+                            <td class="a" width="50">정지사유</td>
                         </tr>
                         <% while(rs.next()){ 
                             String title = rs.getString("title");
@@ -116,16 +125,16 @@
                             String reason = rs.getString("reason");
                         %>
                         <tr>
-                            <td width="100"><%= title %></td>
-                            <td width="100"><%= type %></td>
-                            <td width="100"><%= num_card %></td>
-                            <td width="100"><%= date_expiration %></td>
-                            <td width="100"><%= account %></td>
-                            <td width="100"><%= date_create %></td>
-                            <td width="100"><%= cumulative %></td>
-                            <td width="100"><%= limit %></td>
-                            <td width="100"><%= state %></td>
-                            <td width="100"><%= reason %></td>
+                            <td class="a" width="120"><%= title %></td>
+                            <td class="a" width="100"><%= type %></td>
+                            <td class="a" width="200"><%= num_card %></td>
+                            <td class="a" width="100"><%= date_expiration %></td>
+                            <td class="a" width="200"><%= account %></td>
+                            <td class="a" width="100"><%= date_create %></td>
+                            <td class="a" width="100"><%= cumulative %></td>
+                            <td class="a" width="100"><%= limit %></td>
+                            <td class="a" width="50"><%= state %></td>
+                            <td class="a" width="50"><%= reason %></td>
                         </tr>
                         <% } %>
                     </table>
