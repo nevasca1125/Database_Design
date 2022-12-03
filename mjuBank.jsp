@@ -36,6 +36,14 @@
                             <a href="delete/deleteForm.jsp" class="item">삭제</a>
                         </td>
                         <td class="slice"></td>
+                        <td class="item">
+                            <a href="#" class="item">변경</a>
+                        </td>
+                        <td class="slice"></td>
+                        <td class="item">
+                            <a href="#" class="item">업무</a>
+                        </td>
+                        <td class="slice"></td>
                     </tr>                    
                 </table>
             </div>
