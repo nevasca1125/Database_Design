@@ -27,7 +27,7 @@
                 <table id="menu">
                     <tr>
                         <td class="item">
-                            <a href="#" id="home" class="item">Home</a>
+                            <a href="../mjuBank.jsp" id="home" class="item">Home</a>
                         </td>
                         <td class="slice"></td>
                         <td class="item">

@@ -5,7 +5,7 @@
 <html>
     <head>
         <title>MJU BANK</title>
-        <link rel="stylesheet" href="frame_main.css">
+        <link rel="stylesheet" href="frameVer2.css">
     </head>
     <body>
         <div class="frame">
@@ -24,19 +24,18 @@
             <div id="menu_div">
                 <table id="menu">
                     <tr>
-                    </tr>
+                        <td class="item">
+                            <a href="inquire/inquireForm_customer.jsp" class="item">조회</a>
+                        </td>
+                        <td class="slice"></td>
+                    </tr>                    
                 </table>
             </div>
             <div id="page_div">
-                <table id="page_main">
+                <table id="page">
                     <tr>
-                        <td style="vertical-align: top">
-                            <table style="padding:10px">
-                                <tr id="main" style="padding-left:15px">
-                                    <td>
-                                    </td>
-                                </tr>
-                            </table>
+                        <td>
+
                         </td>
                     </tr>
                 </table>
@@ -46,5 +45,6 @@
                 </table>
             </div>
         </div>
+        <script src="main.js"></script>
     </body>
 </html>
