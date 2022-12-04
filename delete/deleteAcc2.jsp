@@ -62,7 +62,7 @@
                         pstmt = conn.prepareStatement(sql);
                         pstmt.setString(1, UserAccount);
                         
-                        pstmt.executeUpdate();
+                        int result = pstmt.executeUpdate();
 
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}
@@ -93,10 +93,15 @@
                         
                         rs = pstmtRS.executeQuery();
 
+                        String s;
+                        if(result != 0)
+                            s = "계좌 삭제가 완료되었습니다.";
+                        else
+                            s="해당하는 계좌가 없습니다.";
                         %>
 
-                        <h2>계좌 삭제가 완료되었습니다.</h2>
-                        <tr>
+                        <h2><%=s%></h2>
+                        <tr style="background:rgb(190, 190, 255)">
                             <td class="a" width="100">계좌상품명</td>
                             <td class="a" width="100">계좌 타입</td>
                             <td class="a" width="60">고객명</td>
@@ -113,6 +118,7 @@
                             String account = rs.getString("account");
                             int balance = rs.getInt("balance");
                             String date_create = rs.getString("date_create");
+                            date_create = date_create.replace("00:00:00", "");
                         %>
                         <tr>
                             <td class="a" width="100"><%= title %></td>

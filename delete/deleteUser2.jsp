@@ -65,7 +65,7 @@
                         pstmt.setString(1,Name);
                         pstmt.setString(2,UserId);
                         
-                        pstmt.executeUpdate();
+                        int result = pstmt.executeUpdate();
 
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}
@@ -96,10 +96,16 @@
                         
                         rs = pstmtRS.executeQuery();
 
+                        
+                        String s;
+                        if(result != 0)
+                            s = "탈퇴 처리가 완료되었습니다.";
+                        else
+                            s="해당하는 고객이 없습니다.";
                         %>
 
-                        <h2>유저탈퇴 처리가 완료되었습니다.</h2>
-                        <tr>
+                        <h2><%=s%></h2>
+                        <tr style="background:rgb(190, 190, 255)">
                             <td class="a" width="60">고객명</td>
                             <td class="a" width="140">주민번호</td>
                             <td class="a" width="300">주소</td>
@@ -115,11 +121,13 @@
                             String num_resident = rs.getString("num_resident");
                             String address = rs.getString("address");
                             String date_birth = rs.getString("date_birth");
+                            date_birth = date_birth.replace("00:00:00", "");
                             String email = rs.getString("email");
                             String phone = rs.getString("phone");
                             String job = rs.getString("job");
                             int rate_credit = rs.getInt("rate_credit");
                             String date_join = rs.getString("date_join");
+                            date_join = date_join.replace("00:00:00", "");
                         %>
                         <tr>
                             <td class="a" width="60"><%= username %></td>

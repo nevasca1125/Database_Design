@@ -75,7 +75,7 @@
                         pstmt.setString(5,Auto_Month);
                         pstmt.setString(6,Auto_Week);
 
-                        pstmt.executeUpdate();
+                        int result = pstmt.executeUpdate();
                         
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}
@@ -105,10 +105,15 @@
                         
                         rs = pstmtRS.executeQuery();
 
+                        String s;
+                        if(result != 0)
+                            s = "자동이체 신청이 완료되었습니다.";
+                        else
+                            s="해당하는 계좌가 없습니다.";
                         %>
 
-                        <h2>자동이체 신청이 완료되었습니다.</h2>
-                        <tr>
+                        <h2><%=s%></h2>
+                        <tr style="background:rgb(190, 190, 255)">
                             <td class="a" width="100">자동이체Id</td>
                             <td class="a" width="200">송금계좌</td>
                             <td class="a" width="200">입금계좌</td>
@@ -123,6 +128,10 @@
                             String amount = rs.getString("amount");
                             String month = rs.getString("date_send");
                             String week = rs.getString("day_send");
+                            if(month == null)
+                                month = "";
+                            if(week == null)
+                                week = "";
                         %>
                         <tr>
                             <td class="a" width="100"><%= id %></td>

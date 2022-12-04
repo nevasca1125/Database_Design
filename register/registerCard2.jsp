@@ -78,7 +78,7 @@
                         pstmt.setString(9,"run");
                         pstmt.setString(10, null);
                         
-                        pstmt.executeUpdate();
+                        int result = pstmt.executeUpdate();
 
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}
@@ -109,10 +109,15 @@
                         
                         rs = pstmtRS.executeQuery();
 
+                        String s;
+                        if(result != 0)
+                            s = "카드 신청이 완료되었습니다.";
+                        else
+                            s="해당하는 계좌가 없습니다.";
                         %>
 
-                        <h2>카드 신청이 완료되었습니다.</h2>
-                        <tr>
+                        <h2><%=s%></h2>
+                        <tr style="background:rgb(190, 190, 255)">
                             <td class="a" width="120">카드상품명</td>
                             <td class="a" width="100">카드타입</td>
                             <td class="a" width="200">카드번호</td>
@@ -129,12 +134,16 @@
                             String type = rs.getString("type");
                             String num_card = rs.getString("num_card");
                             String date_expiration = rs.getString("date_expiration");
+                            date_expiration = date_expiration.replace("00:00:00", "");
                             String account = rs.getString("account");
                             String date_create = rs.getString("date_create");
+                            date_create = date_create.replace("00:00:00", "");
                             String cumulative = rs.getString("cumulative");
                             String limit = rs.getString("limit");
                             String state = rs.getString("state");
                             String reason = rs.getString("reason");
+                            if(reason == null)
+                                reason = "";
                         %>
                         <tr>
                             <td class="a" width="120"><%= title %></td>
