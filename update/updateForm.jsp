@@ -16,7 +16,7 @@
 <body>
 
 <p>Customer 테이블 레코드 변경</p> <%-- 주민등록번호와 가입날짜는 바뀌지 않아서 제외 --%>
-<form name="form1" method="post" action="update.jsp">  <%-- 입력 폼을 생성, 사용자로부터 입력받은 값을 update.jsp로 전달 --%>
+<form name="form1" method="post" action="update.jsp">  <%-- 입력 폼을 생성, 사용자로부터 입력받은 값을 updateTest.jsp로 전달 --%>
     <label>이름 <input type="text" name="name"></label>
     <label>생년월일(YY/MM/DD) <input type="text" name="date_birth"></label> <%-- 생년월일로 변경 대상 찾기 --%>
     <label>주소 <input type="text" name="address"></label>
