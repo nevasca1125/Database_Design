@@ -47,6 +47,7 @@
                     String Card_Account = request.getParameter("card_account");
                     String Card_opendate = request.getParameter("card_opendate");
                     int Card_limit = Integer.parseInt(request.getParameter("card_limit"));
+                    int result = 0;
                     
                     Connection conn = null;
                     PreparedStatement pstmt = null;
@@ -78,7 +79,7 @@
                         pstmt.setString(9,"run");
                         pstmt.setString(10, null);
                         
-                        int result = pstmt.executeUpdate();
+                        result = pstmt.executeUpdate();
 
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}

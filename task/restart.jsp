@@ -31,7 +31,7 @@
 					</table>
 				</div>
 				<div id="page_div">
-					<table id="page"></table>
+					<table id="page">
 					<td id="main">
 <%
 	request.setCharacterEncoding("utf-8");
@@ -67,25 +67,82 @@
         pstmt.executeUpdate(); 
 %>
 
-	<p>해당 카드가 정지 해제되었습니다.</p>
+<h3  style="color: blue; padding-left: 15px">해당 카드가 정지 해제되었습니다.</h3>
+<br>
+<table border="1" style="text-align: center; border-color: blue; font-size: 15px;">
+	<tr style="background:rgb(190, 190, 255)">
+		<td width="140">상품명</td>
+		<td width="100">상품타입</td>
+		<td width="100">이름</td>
+		<td width="160">주민번호</td>
+		<td width="160">카드번호</td>
+		<td width="100">유효기간</td>
+		<td width="160">연결계좌번호</td>
+		<td width="120">개설일자</td>
+		<td width="100">누적금액</td>
+		<td width="100">한도</td>
+		<td width="100">상태</td>
+		<td width="100">사유</td>
+	</tr>
 
 <%
+	String sql2 = "SELECT * FROM Card_List, (SELECT account as acc, name, customer.num_resident FROM Account_List, Customer WHERE owner=name and Account_List.num_resident=Customer.num_resident) WHERE account = acc and num_card=?";
+	pstmt = conn.prepareStatement(sql2);
+	pstmt.setString(1, num_card);
 
-	}catch(SQLException e){
-		e.printStackTrace();
+	rs = pstmt.executeQuery();
 
-		if(pstmt != null) {
-			try {
-				pstmt.close();
-			}catch(SQLException sqle) {}
-		}
-		if(conn != null) {
-			try {
-				conn.close();
-			}catch(SQLException sqle) {}
-		}
-	}
+	while( rs.next() ) {
+
+		String title = rs.getString("title");
+		String type = rs.getString("type");
+		String name = rs.getString("name");
+		String number = rs.getString("num_resident");
+		String num_card2 = rs.getString("num_card");
+		String date_expiration = rs.getString("date_expiration");
+		String account = rs.getString("account");
+		String date_create = rs.getString("date_create");
+		String cumulative = rs.getString("cumulative");
+		String limit = rs.getString("limit");
+		String state = rs.getString("state");
+		String reason = rs.getString("reason");
+		if(reason == null)
+			reason = "";
+		date_expiration = date_expiration.replace("00:00:00", "");
+		date_create = date_create.replace("00:00:00", "");
 %>
+			<tr>
+				<td width="140"><%= title %></td>
+				<td width="100"><%= type %></td>
+				<td width="100"><%= name %></td>
+				<td width="160"><%= num_card2 %></td>
+				<td width="160"><%= number %></td>
+				<td width="100"><%= date_expiration %></td>
+				<td width="160"><%= account %></td>
+				<td width="120"><%= date_create %></td>
+				<td width="100"><%= cumulative %></td>
+				<td width="100"><%= limit %></td>
+				<td width="100"><%= state %></td>
+				<td width="100"><%= reason %></td>
+			</tr>
+
+<% 
+	}
+ }catch(SQLException e){
+	e.printStackTrace();
+
+	if(pstmt != null) {
+		try {
+			pstmt.close();
+		}catch(SQLException sqle) {}
+	}
+	if(conn != null) {
+		try {
+			conn.close();
+		}catch(SQLException sqle) {}
+	}
+} %>
+</table>
 </td>
 </table>
 </div>

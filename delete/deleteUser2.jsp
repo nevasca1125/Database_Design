@@ -42,6 +42,7 @@
                     
                     String Name = request.getParameter("userName");
                     String UserId = request.getParameter("userID");
+                    int result = 0;
                     
                     Connection conn = null;
                     PreparedStatement pstmt = null;
@@ -65,7 +66,7 @@
                         pstmt.setString(1,Name);
                         pstmt.setString(2,UserId);
                         
-                        int result = pstmt.executeUpdate();
+                        result = pstmt.executeUpdate();
 
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}

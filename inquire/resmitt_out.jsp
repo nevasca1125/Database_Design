@@ -57,7 +57,7 @@
                                 <td width="140">착금계좌 소유주</td>
                                 <td width="160">착금계좌</td>
                                 <td width="100">송금금액</td>
-                                <td width="100">송금일자</td>
+                                <td width="160">송금일자</td>
                             </tr>
                             <%
                             request.setCharacterEncoding("utf-8");
@@ -148,7 +148,7 @@
                                             <td width="140"><%= owner_d %></td>
                                             <td width="160"><%= destination %></td>
                                             <td width="100"><%= amount %></td>
-                                            <td width="100"><%= date %></td>
+                                            <td width="160"><%= date %></td>
                                         </tr>
                             
                             <%

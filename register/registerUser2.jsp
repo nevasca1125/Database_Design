@@ -49,6 +49,7 @@
                     String userJob = request.getParameter("C_job");
                     int userCredit = Integer.parseInt(request.getParameter("C_credit"));
                     String userMakeDate = request.getParameter("C_makedate");
+                    int result = 0;
 
                     Connection conn = null;
                     PreparedStatement pstmt = null;
@@ -78,7 +79,7 @@
                         pstmt.setString(7,userJob);
                         pstmt.setInt(8, userCredit);
                         pstmt.setString(9, userMakeDate);
-                        int result = pstmt.executeUpdate();
+                        result = pstmt.executeUpdate();
 
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}

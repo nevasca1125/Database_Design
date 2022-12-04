@@ -42,6 +42,7 @@
                                         
                     String Auto_SendAccount = request.getParameter("sendAccount");
                     String Auto_ReceiveAccount = request.getParameter("receiveAccount");
+                    int result = 0;
                     
                     Connection conn = null;
                     PreparedStatement pstmt = null;
@@ -67,7 +68,7 @@
                         pstmt.setString(1,Auto_SendAccount);
                         pstmt.setString(2,Auto_ReceiveAccount);
 
-                        inte result = pstmt.executeUpdate();
+                        result = pstmt.executeUpdate();
                         
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}

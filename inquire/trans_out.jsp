@@ -57,7 +57,7 @@
                                 <td width="160">주민번호</td>
                                 <td width="100">거래금액</td>
                                 <td width="160">내역</td>
-                                <td width="100">거래일자</td>
+                                <td width="160">거래일자</td>
                                 <td width="160">착금계좌</td>
                             </tr>
                             <%
@@ -152,7 +152,7 @@
                                             <td width="160"><%= number_r %></td>
                                             <td width="100"><%= amount %></td>
                                             <td width="160"><%= breakdown %></td>
-                                            <td width="100"><%= date %></td>
+                                            <td width="160"><%= date %></td>
                                             <td width="160"><%= account %></td>
                                         </tr>
                             

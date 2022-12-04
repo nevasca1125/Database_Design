@@ -33,7 +33,8 @@
 						</table>
 					</div>
 					<div id="page_div">
-						<table id="page"></table>
+						<table id="page">
+						<tr>
 						<td id="main">
 							<%
 							request.setCharacterEncoding("utf-8");
@@ -120,12 +121,52 @@
 								}
 						%>
 						
-							<%= amount %>
-								<p>원 송금되었습니다.</p>
-								<p>송금 내역이 추가되었습니다.</p>
+							
+								<p style="color: blue; padding-left: 15px;"><%= amount %>원 송금되었습니다.</p>
+								<p style="color: blue; padding-left: 15px;">송금 내역이 추가되었습니다.</p>
+								<br>
+								<table border="1" style="text-align: center; border-color: blue; font-size: 15px;">
+									<tr style="color:black; background:rgb(190, 190, 255)">
+										<td width="100">상품명</td>
+										<td width="140">상품타입</td>
+										<td width="140">소유주</td>
+										<td width="160">주민번호</td>
+										<td width="160">계좌번호</td>
+										<td width="120">잔액</td>
+										<td width="100">생성일자</td>
+									</tr>
 
+								<%
+									String sql = "SELECT * FROM (SELECT name, num_resident as num FROM Customer), (SELECT * FROM Account_List WHERE account=? or account=?) WHERE name = owner and num=num_resident";
+									pstmt = conn.prepareStatement(sql);
+									pstmt.setString(1, postAccount);
+									pstmt.setString(2, getAccount);
 
-								<% }catch(SQLException e){
+									rs = pstmt.executeQuery();
+
+									while( rs.next() ) {
+
+                                        String title = rs.getString("title");
+                                        String type = rs.getString("type");
+                                        String owner = rs.getString("owner");
+                                        String number = rs.getString("num_resident");
+                                        String account = rs.getString("account");
+                                        String balance= rs.getString("balance");
+                                        String create = rs.getString("date_create");
+                                        create = create.replace("00:00:00", "");
+								%>
+									<tr>
+										<td width="10"><%= title %></td>
+										<td width="140"><%= type %></td>
+										<td width="140"><%= owner %></td>
+										<td width="160"><%= number %></td>
+										<td width="160"><%= account %></td>
+										<td width="120"><%= balance %></td>
+										<td width="100"><%= create %></td>
+									</tr>
+								<% 
+									}
+								}catch(SQLException e){
 									e.printStackTrace();
 							
 									if(pstmt != null) {
@@ -139,7 +180,9 @@
 										}catch(SQLException sqle) {}
 									}
 								} %>
-						</td>
+								</table>
+							</td>
+							</tr>
 						</table>
 					</div>
 					<div id="bottom_div">

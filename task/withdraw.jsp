@@ -32,7 +32,7 @@
 						</table>
 					</div>
 					<div id="page_div">
-						<table id="page"></table>
+						<table id="page">
 						<td id="main">
 <%
 	request.setCharacterEncoding("utf-8");
@@ -70,7 +70,9 @@
 
         int BALANCE = rs.getInt("BALANCE");
         if(BALANCE < amount) { 
-			out.println("잔액이 부족합니다."); // 화면 출력
+			%>
+			<h3 style="color: blue; padding-left: 15px">잔액이 부족합니다.</h3>
+			<%
 			return; 
 			// 잔액이 부족할 경우
         }
@@ -83,26 +85,64 @@
         		
 %>
 
-   <p><%= amount %>원 출금되었습니다.</p>
-	
+   <h3 style="color: blue; padding-left: 15px"><%= amount %>원 출금되었습니다.</h3>
+   <br>
+   <table border="1" style="text-align: center; border-color: blue; font-size: 15px;">
+	   <tr style="color:black; background:rgb(190, 190, 255)">
+		   <td width="100">상품명</td>
+		   <td width="140">상품타입</td>
+		   <td width="140">소유주</td>
+		   <td width="160">주민번호</td>
+		   <td width="160">계좌번호</td>
+		   <td width="120">잔액</td>
+		   <td width="100">생성일자</td>
+	   </tr>
 
-<%
+   <%
+	   String sql2 = "SELECT * FROM (SELECT name, num_resident as num FROM Customer), (SELECT * FROM Account_List WHERE account=?) WHERE name = owner and num=num_resident";
+	   pstmt = conn.prepareStatement(sql2);
+	   pstmt.setString(1, account);
 
+	   rs = pstmt.executeQuery();
+
+	   while( rs.next() ) {
+
+		   String title = rs.getString("title");
+		   String type = rs.getString("type");
+		   String owner = rs.getString("owner");
+		   String number = rs.getString("num_resident");
+		   String account2 = rs.getString("account");
+		   String balance= rs.getString("balance");
+		   String create = rs.getString("date_create");
+		   create = create.replace("00:00:00", "");
+   %>
+	   <tr>
+		   <td width="10"><%= title %></td>
+		   <td width="140"><%= type %></td>
+		   <td width="140"><%= owner %></td>
+		   <td width="160"><%= number %></td>
+		   <td width="160"><%= account2 %></td>
+		   <td width="120"><%= balance %></td>
+		   <td width="100"><%= create %></td>
+	   </tr>
+
+   <% 
+	   }
 	}catch(SQLException e){
-		e.printStackTrace();
+	   e.printStackTrace();
 
-		if(pstmt != null) {
-			try {
-				pstmt.close();
-			}catch(SQLException sqle) {}
-		}
-		if(conn != null) {
-			try {
-				conn.close();
-			}catch(SQLException sqle) {}
-		}
-	}
-%>
+	   if(pstmt != null) {
+		   try {
+			   pstmt.close();
+		   }catch(SQLException sqle) {}
+	   }
+	   if(conn != null) {
+		   try {
+			   conn.close();
+		   }catch(SQLException sqle) {}
+	   }
+   } %>
+   </table>
 </td>
 </table>
 </div>

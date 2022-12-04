@@ -41,6 +41,7 @@
                     request.setCharacterEncoding("utf-8");
                                         
                     String UserAccount = request.getParameter("userAccount");
+                    int result = 0;
                     
                     Connection conn = null;
                     PreparedStatement pstmt = null;
@@ -62,7 +63,7 @@
                         pstmt = conn.prepareStatement(sql);
                         pstmt.setString(1, UserAccount);
                         
-                        int result = pstmt.executeUpdate();
+                        result = pstmt.executeUpdate();
 
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}

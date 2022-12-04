@@ -42,6 +42,7 @@
                                         
                     String Card_Number = request.getParameter("cardNum");
                     String Card_accountNum = request.getParameter("cardAccount");
+                    int result = 0;
                     
                     Connection conn = null;
                     PreparedStatement pstmt = null;
@@ -67,7 +68,7 @@
                         pstmt.setString(1,Card_Number);
                         pstmt.setString(2,Card_accountNum);
 
-                        int result = pstmt.executeUpdate();
+                        result = pstmt.executeUpdate();
                         
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}

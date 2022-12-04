@@ -46,6 +46,7 @@
                     String Auto_Receive = request.getParameter("Auto_receive_account");
                     String Auto_Month = request.getParameter("Auto_month");
                     String Auto_Week = request.getParameter("Auto_week");
+                    int result = 0;
 
                     Connection conn = null;
                     PreparedStatement pstmt = null;
@@ -75,7 +76,7 @@
                         pstmt.setString(5,Auto_Month);
                         pstmt.setString(6,Auto_Week);
 
-                        int result = pstmt.executeUpdate();
+                        result = pstmt.executeUpdate();
                         
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}

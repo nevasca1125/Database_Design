@@ -47,6 +47,7 @@
                     String A_number = request.getParameter("account_Num");
                     int A_money = Integer.parseInt(request.getParameter("account_send"));
                     String A_date = request.getParameter("account_opendate");
+                    int result = 0;
                     
                     Connection conn = null;
                     PreparedStatement pstmt = null;
@@ -75,7 +76,7 @@
                         pstmt.setInt(6,A_money);
                         pstmt.setString(7,A_date);
                         
-                        int result = pstmt.executeUpdate();
+                        result = pstmt.executeUpdate();
 
                     }finally{
                         if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}
