@@ -3,14 +3,37 @@
 <%@ page import="java.util.Date" %>
 
 <!DOCTYPE html>
-<html>
-<head>
-	<title>출금</title>
+				<html>
 
-</head>
+				<head>
+					<title>MJU BANK</title>
+					<link rel="stylesheet" href="inquire/frameVer2.css">
+				</head>
 
-
-<body>
+				<body>
+					<div id="top_div">
+						<table id="top">
+							<tr>
+								<td id="title_th1">
+									<p id="img"><img src="../mju_logo.jpg" alt="mju_logo" width="45px"></p>
+								</td>
+								<td id="title_th2">
+									<h3 id="title">MJU BANK</h3>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div id="menu_div">
+						<table id="menu">
+							<td class="item">
+								<a href="../mjuBank.jsp" class="item">Home</a>
+							</td>
+							<td class="slice"></td>
+						</table>
+					</div>
+					<div id="page_div">
+						<table id="page"></table>
+						<td id="main">
 <%
 	request.setCharacterEncoding("utf-8");
 
@@ -30,7 +53,7 @@
 	}
 	try{
 		String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-		String userId = "Bank";
+		String userId = "class_a";
 		String userPass = "practice";
 
 		conn = DriverManager.getConnection(jdbcUrl, userId, userPass);
@@ -80,7 +103,13 @@
 		}
 	}
 %>
-
+</td>
+</table>
+</div>
+<div id="bottom_div">
+<table id="bottom">
+</table>
+</div>
 
 </body>
 </html>
