@@ -34,23 +34,30 @@
                 </div>
                 <div id="page_div">
                     <table id="page">
-                        <td id="main">
-                        <p>Customer 테이블 레코드 변경</p>
-                        <%-- 주민등록번호와 가입날짜는 바뀌지 않아서 제외 --%>
-                            <form name="form1" method="post" action="update.jsp">
-                                <%-- 입력 폼을 생성, 사용자로부터 입력받은 값을 updateTest.jsp로 전달 --%>
-                                    <label>이름 <input type="text" name="name"></label>
-                                    <label>생년월일(YY/MM/DD) <input type="text" name="date_birth"></label>
-                                    <%-- 생년월일로 변경 대상 찾기 --%>
-                                        <label>주소 <input type="text" name="address"></label>
-                                        <label>이메일 <input type="text" name="email"></label>
-                                        <label>전화번호 <input type="text" name="phone"></label>
-                                        <label>직업 <input type="text" name="job"></label>
-                                        <label>신용등급 <input type="text" name="rate_credit"></label>
+                        <tr id="main">
+                            <td>
+                                <h3 style="color: blue; padding-left: 15px">[고객정보 수정]</h3>
+                                <%-- 주민등록번호와 가입날짜는 바뀌지 않아서 제외 --%>
+                                <form name="form1" method="post" action="update.jsp">
+                                    <%-- 입력 폼을 생성, 사용자로부터 입력받은 값을 updateTest.jsp로 전달 --%>
+                                    <h4 style="padding-left: 15px">변경할 고객의 이름과 주민번호를 입력하세요.</h4>
+                                    <p style="color:blue; padding-left:15px">이름 : <input type="text" name="name_find"></p>
+                                    <p style="color:blue; padding-left:15px">주민번호 : <input type="text" name="number_find"></p>
+                                    <br>
 
-                                        <label><input type="submit" name="Submit" value="변경"></label>
-                            </form>
-                        </td>
+                                    <h4 style="padding-left: 15px">변경할 내용을 입력하세요.</h4>
+                                    <p style="padding-left:15px">이름 : <input type="text" name="name"></p>
+                                    <p style="padding-left: 15px">생년월일 : <input type="text" name="date_birth"></p>
+                                    <p style="padding-left: 15px">주소 : <input type="text" name="address"></p>
+                                    <p style="padding-left: 15px">이메일 : <input type="text" name="email"></p>
+                                    <p style="padding-left: 15px">전화번호 : <input type="text" name="phone"></p>
+                                    <p style="padding-left: 15px">직업 : <input type="text" name="job"></p>
+                                    <p style="padding-left: 15px">신용점수 : <input type="text" name="rate_credit"></p>
+                                    <p style="padding-left: 15px"><input type="submit" name="Submit" value="변경"></p>
+                                    <%-- 생년월일로 변경 대상 찾기 --%>
+                                </form>
+                            </td>
+                        </tr>
                     </table>
                 </div>
                 <div id="bottom_div">
