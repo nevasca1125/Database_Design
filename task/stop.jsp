@@ -6,7 +6,7 @@
 
 				<head>
 					<title>MJU BANK</title>
-					<link rel="stylesheet" href="inquire/frameVer2.css">
+					<link rel="stylesheet" href="../inquire/frameVer2.css">
 				</head>
 
 				<body>
