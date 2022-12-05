@@ -99,6 +99,7 @@
                                     if(credit_c != null && credit_c != "")
                                         sql += " rate_credit>?";
 
+                                    sql += "ORDER BY name, date_birth";
                                     pstmt = conn.prepareStatement(sql);
                                     
                                     int i = 1;
@@ -127,7 +128,7 @@
                                         rs = pstmt.executeQuery();
                                     else{
                                         Statement stmt = conn.createStatement();
-                                        rs = stmt.executeQuery("SELECT * FROM Customer");
+                                        rs = stmt.executeQuery("SELECT * FROM Customer ORDER BY name, date_birth");
                                     }
 
                                     

@@ -97,7 +97,7 @@
                                 if(credit_c != null && credit_c != "")
                                     sql += " rate_credit>?";
 
-                                sql += ") WHERE owner=name and num_resident=num), (SELECT account as dest, owner as owner_d FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num) WHERE account_src=src and account_dest=dest";
+                                sql += ") WHERE owner=name and num_resident=num), (SELECT account as dest, owner as owner_d FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num) WHERE account_src=src and account_dest=dest ORDER BY owner_s, account_src";
 
                                 pstmt = conn.prepareStatement(sql);
                                 
@@ -127,7 +127,7 @@
                                     rs = pstmt.executeQuery();
                                 else{
                                     Statement stmt = conn.createStatement();
-                                    rs = stmt.executeQuery("SELECT * FROM Automatic, (SELECT account as src, owner as owner_s, num_resident FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num), (SELECT account as dest, owner as owner_d FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num) WHERE account_src=src and account_dest=dest");
+                                    rs = stmt.executeQuery("SELECT * FROM Automatic, (SELECT account as src, owner as owner_s, num_resident FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num), (SELECT account as dest, owner as owner_d FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num) WHERE account_src=src and account_dest=dest ORDER BY owner_s, account_src");
                                 }
 
                                 while( rs.next() ) {

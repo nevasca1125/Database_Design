@@ -98,7 +98,7 @@
                                 if(credit_c != null && credit_c != "")
                                     sql += " rate_credit>?";
 
-                                sql += ") WHERE owner=name and num_resident=num) WHERE account=acc) WHERE card=num_card";
+                                sql += ") WHERE owner=name and num_resident=num) WHERE account=acc) WHERE card=num_card ORDER BY name, number_r, date_trans";
 
                                 pstmt = conn.prepareStatement(sql);
                                 
@@ -128,7 +128,7 @@
                                     rs = pstmt.executeQuery();
                                 else{
                                     Statement stmt = conn.createStatement();
-                                    rs = stmt.executeQuery("SELECT * FROM Detail_Transaction, (SELECT num_card, name, num_resident as number_r FROM Card_List, (SELECT account as acc, name, customer.num_resident FROM Account_List, Customer WHERE owner=name and Account_List.num_resident=Customer.num_resident) WHERE account = acc) WHERE card=num_card");
+                                    rs = stmt.executeQuery("SELECT * FROM Detail_Transaction, (SELECT num_card, name, num_resident as number_r FROM Card_List, (SELECT account as acc, name, customer.num_resident FROM Account_List, Customer WHERE owner=name and Account_List.num_resident=Customer.num_resident) WHERE account = acc) WHERE card=num_card ORDER BY name, number_r, date_trans");
                                 }
 
                                 while( rs.next() ) {

@@ -94,6 +94,7 @@
                                     if(interest_g != null && interest_g != "")
                                         sql += " rate_interest>?";
 
+                                    sql += "ORDER BY type";
                                     pstmt = conn.prepareStatement(sql);
                                     
                                     int i = 1;
@@ -118,7 +119,7 @@
                                         rs = pstmt.executeQuery();
                                     else{
                                         Statement stmt = conn.createStatement();
-                                        rs = stmt.executeQuery("SELECT * FROM Goods_Account");
+                                        rs = stmt.executeQuery("SELECT * FROM Goods_Account ORDER BY type");
                                     }
 
                                     

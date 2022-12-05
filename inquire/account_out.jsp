@@ -97,7 +97,7 @@
                                     if(credit_c != null && credit_c != "")
                                         sql += " rate_credit>?";
 
-                                    sql += ") WHERE owner=name and num_resident=num";
+                                    sql += ") WHERE owner=name and num_resident=num ORDER BY owner, num_resident, type";
 
                                     pstmt = conn.prepareStatement(sql);
                                     
@@ -127,7 +127,7 @@
                                         rs = pstmt.executeQuery();
                                     else{
                                         Statement stmt = conn.createStatement();
-                                        rs = stmt.executeQuery("SELECT * FROM Account_List");
+                                        rs = stmt.executeQuery("SELECT * FROM Account_List ORDER BY owner, num_resident, type");
                                     }
 
                                     while( rs.next() ) {
