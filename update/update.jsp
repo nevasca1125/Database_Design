@@ -117,37 +117,44 @@
 
 							int n = 1;
 							if(name!= ""){
-								pstmt.setString(i, name);
-								i++;
+								pstmt.setString(n, name);
+								n++;
 							}
 							if(date_birth!=""){
-								pstmt.setString(i, date_birth);
-								i++;
+								pstmt.setString(n, date_birth);
+								n++;
 							}
 							if(address!=""){
-								pstmt.setString(i, address);
-								i++;
+								pstmt.setString(n, address);
+								n++;
 							}
 							if(email!=""){
-								pstmt.setString(i, email);
-								i++;
+								pstmt.setString(n, email);
+								n++;
 							}
 							if(phone!=""){
-								pstmt.setString(i, phone);
-								i++;
+								pstmt.setString(n, phone);
+								n++;
 							}
 							if(job!=""){
-								pstmt.setString(i, job);
-								i++;
+								pstmt.setString(n, job);
+								n++;
 							}
 							if(rate_credit!=""){
-								pstmt.setString(i, rate_credit);
-								i++;
+								pstmt.setString(n, rate_credit);
+								n++;
 							}
-							pstmt.setString(i, name_find);
-							i++;
-							pstmt.setString(i, number_find);
-							i++;
+							pstmt.setString(n, name_find);
+							n++;
+							pstmt.setString(n, number_find);
+							n++;
+
+							if(nmae != ""){
+								String updateSql2 = "UPDATE Account_List SET name=? WHERE owner=name";
+								PreparedStatement pstmt2 = conn.prepareStatement(updateSql2);
+								pstmt2.setString(1, name);
+								pstmt2.executeUpdate(); 
+							}
 								
 							int result = pstmt.executeUpdate(); 
 							
@@ -176,7 +183,10 @@
 							<%
 								String sql = "SELECT * FROM Customer WHERE name=? and num_resident=?";
 								pstmt = conn.prepareStatement(sql);
-								pstmt.setString(1, name);
+								if(name != "")
+									pstmt.setString(1, name);
+								else
+									pstmt.setString(1, name_find);
 								pstmt.setString(2, number_find);
 								rs = pstmt.executeQuery();
 

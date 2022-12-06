@@ -85,14 +85,29 @@
                                     
                                     String sql = "SELECT * FROM Goods_Account WHERE";
                                     
-                                    if(title_g != null && title_g != "")
+                                    int n = 0;
+                                    if(title_g != null && title_g != ""){
                                         sql += " title=?";
-                                    if(type_g != null && type_g != "")
+                                        n++;
+                                    }
+                                    if(type_g != null && type_g != ""){
+                                        if(n != 0)
+                                            sql += "and";
                                         sql += " type=?";
-                                    if(target_g != null && target_g != "")
+                                        n++;
+                                    }
+                                    if(target_g != null && target_g != ""){
+                                        if(n!= 0)
+                                            sql+="and";
                                         sql += " target=?";
-                                    if(interest_g != null && interest_g != "")
+                                        n++;
+                                    }
+                                    if(interest_g != null && interest_g != ""){
+                                        if(n!= 0)
+                                            sql+= "and";
                                         sql += " rate_interest>?";
+                                        n++;
+                                    }
 
                                     sql += "ORDER BY type";
                                     pstmt = conn.prepareStatement(sql);

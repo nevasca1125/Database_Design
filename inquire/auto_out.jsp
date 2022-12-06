@@ -86,16 +86,35 @@
                                 
                                 String sql = "SELECT * FROM Automatic, (SELECT account as src, owner as owner_s, num_resident FROM Account_List, (SELECT name, num_resident as num FROM Customer WHERE";
                                 
-                                if(name_c != null && name_c != "")
+                                int n = 0;
+                                if(name_c != null && name_c != ""){
                                     sql += " name=?";
-                                if(number_c != null && number_c != "")
+                                    n++;
+                                }
+                                if(number_c != null && number_c != ""){
+                                    if(n != 0)
+                                        sql += "and";
                                     sql += " num_resident=?";
-                                if(address_c != null && address_c != "")
+                                    n++;
+                                }
+                                if(address_c != null && address_c != ""){
+                                    if(n != 0)
+                                        sql += "and";
                                     sql += " address=?";
-                                if(phone_c != null && phone_c != "")
+                                    n++;
+                                }
+                                if(phone_c != null && phone_c != ""){
+                                    if(n != 0)
+                                        sql += "and";
                                     sql += " phone=?";
-                                if(credit_c != null && credit_c != "")
+                                    n++;
+                                }
+                                if(credit_c != null && credit_c != ""){
+                                    if(n != 0)
+                                        sql += "and";
                                     sql += " rate_credit>?";
+                                    n++;
+                                }
 
                                 sql += ") WHERE owner=name and num_resident=num), (SELECT account as dest, owner as owner_d FROM Account_List, (SELECT name, num_resident as num FROM Customer) WHERE owner=name and num_resident=num) WHERE account_src=src and account_dest=dest ORDER BY owner_s, account_src";
 
