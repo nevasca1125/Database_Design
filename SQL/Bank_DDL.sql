@@ -131,6 +131,7 @@ CREATE table Info_Loans(
     ON DELETE CASCADE
 );
 
+
 Drop table Info_Loans;
 Drop table Info_Deposite;
 Drop table Info_Installment;

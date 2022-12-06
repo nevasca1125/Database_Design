@@ -46,7 +46,6 @@
                                     <br>
 
                                     <h4 style="padding-left: 15px">변경할 내용을 입력하세요.</h4>
-                                    <p style="padding-left:15px">이름 : <input type="text" name="name"></p>
                                     <p style="padding-left: 15px">생년월일 : <input type="text" name="date_birth"></p>
                                     <p style="padding-left: 15px">주소 : <input type="text" name="address"></p>
                                     <p style="padding-left: 15px">이메일 : <input type="text" name="email"></p>

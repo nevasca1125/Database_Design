@@ -71,10 +71,6 @@
 							String updateSql = "UPDATE CUSTOMER SET "; // TO_CHAR()를 통해 생년월일을 문자열로 바꿔서 date_birth와 비교
 							
 							int i = 0;
-							if(name != ""){
-								updateSql += "Name=?";
-								i++;
-							}
 							if(date_birth != ""){
 								if(i!=0)
 									updateSql += ",";
@@ -116,10 +112,6 @@
 							pstmt = conn.prepareStatement(updateSql);
 
 							int n = 1;
-							if(name!= ""){
-								pstmt.setString(n, name);
-								n++;
-							}
 							if(date_birth!=""){
 								pstmt.setString(n, date_birth);
 								n++;
@@ -148,13 +140,6 @@
 							n++;
 							pstmt.setString(n, number_find);
 							n++;
-
-							if(nmae != ""){
-								String updateSql2 = "UPDATE Account_List SET name=? WHERE owner=name";
-								PreparedStatement pstmt2 = conn.prepareStatement(updateSql2);
-								pstmt2.setString(1, name);
-								pstmt2.executeUpdate(); 
-							}
 								
 							int result = pstmt.executeUpdate(); 
 							
@@ -183,10 +168,7 @@
 							<%
 								String sql = "SELECT * FROM Customer WHERE name=? and num_resident=?";
 								pstmt = conn.prepareStatement(sql);
-								if(name != "")
-									pstmt.setString(1, name);
-								else
-									pstmt.setString(1, name_find);
+								pstmt.setString(1, name_find);
 								pstmt.setString(2, number_find);
 								rs = pstmt.executeQuery();
 
